@@ -1,0 +1,497 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Link | Home</title>
+
+    <!-- Google Fonts: Montserrat Light 300 and SemiBold 600 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+
+    <style>
+        ::selection {
+            background: #24a09c;
+            color: #fff;
+        }
+
+        ::-moz-selection {
+            background: #24a09c;
+            color: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+            background: #0d1c2e;
+            color: #9ef7d8;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.4s ease, box-shadow 0.4s ease;
+            z-index: 1000;
+        }
+
+            header.transparent {
+                background: rgba(13, 28, 46, 0);
+                box-shadow: none;
+            }
+
+            header.opaque {
+                background: rgba(13, 28, 46, 0.95);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            }
+
+            header img {
+                height: 50px;
+            }
+
+        nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                gap: 30px;
+                align-items: center;
+            }
+
+                nav ul li a {
+                    text-decoration: none;
+                    font-weight: 300;
+                    color: #fff;
+                    transition: color 0.3s;
+                }
+
+        header.opaque nav ul li a:not(.button-68) {
+            color: #9ef7d8;
+        }
+
+        nav ul li a:hover {
+            color: #24a09c;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Buttons */
+        .button-68 {
+            background-color: #16f2eb;
+            border-radius: 8px;
+            border: none;
+            color: #11253B;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 10px 18px;
+            cursor: pointer;
+            transition: all .3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 9px rgba(22, 242, 235, 0.2);
+        }
+
+            .button-68:hover {
+                background-color: #24a09c;
+                color: #fff;
+                box-shadow: 0 6px 12px rgba(29,168,164,0.35);
+            }
+
+            .button-68:active {
+                transform: translateY(2px);
+            }
+
+        /* Hero */
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background: url("D:/GuardianLinkWEB/Images/INDEXHERO.png") no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.45);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+        }
+
+            .hero-content h1 {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 900; /* Black weight */
+                font-size: 5rem;
+                margin-bottom: 30px;
+                background: linear-gradient(90deg, #16f2eb, #00fe38);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+                color: #d7fef0;
+                max-width: 700px;
+                margin: 0 auto 30px;
+            }
+
+        /* About Section */
+        .about-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            background: #11253B;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .about-card {
+            display: flex;
+            flex-direction: row;
+            background: #0d1c2e;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            max-width: 1200px;
+            width: 100%;
+            overflow: hidden;
+            color: #9ef7d8;
+        }
+
+        .about-text {
+            padding: 50px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+            .about-text h2 {
+                font-size: 2.8rem;
+                font-weight: 700;
+                color: #00fe38;
+            }
+
+            .about-text p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+                font-weight: 300;
+            }
+
+        .about-image {
+            flex: 1;
+            overflow: hidden;
+        }
+
+            .about-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        /* Products Section */
+        .products-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 80px 20px;
+            flex-wrap: wrap;
+            background: #0d1c2e;
+        }
+
+        .main-product-card {
+            flex: 2;
+            display: flex;
+            flex-direction: row;
+            background: #11253B;
+            border-radius: 20px;
+            overflow: hidden;
+            color: #9ef7d8;
+        }
+
+        .main-product-image {
+            flex: 1;
+            overflow: hidden;
+        }
+
+            .main-product-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .main-product-text {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            .main-product-text h2 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 15px;
+                text-align: center;
+                color: #00fe38;
+            }
+
+            .main-product-text p {
+                font-size: 1.1rem;
+                font-weight: 300;
+                line-height: 1.6;
+                text-align: center;
+                color: #9ef7d8;
+            }
+
+        /* Features / small cards */
+        .small-cards {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .small-card {
+            background: #0d1c2e;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            color: #9ef7d8;
+            box-shadow: 0 0 15px rgba(0, 254, 56, 0.12);
+            transition: all 0.3s ease;
+        }
+
+            .small-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 0 25px rgba(0, 254, 56, 0.35);
+            }
+
+            .small-card h4 {
+                color: #00fe38;
+                margin-bottom: 10px;
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+
+            .small-card p {
+                color: #9ef7d8;
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+        /* Footer */
+        footer {
+            background-color: #0d1c2e;
+            color: #9ef7d8;
+            padding: 60px 20px 30px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-section h3 {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #00fe38;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-weight: 300;
+            font-size: 0.95rem;
+            color: #9ef7d8;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+            .footer-section a:hover {
+                color: #24a09c;
+            }
+
+        .footer-bottom {
+            width: 100%;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(158,247,216,0.3);
+            margin-top: 30px;
+            font-size: 0.85rem;
+        }
+
+        @media(max-width:900px) {
+            .about-card, .main-product-card {
+                flex-direction: column;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <header class="transparent" id="mainHeader">
+        <img src="D:\GuardianLinkWEB\Images\LOGOCOLORED.png" alt="Guardian Link Logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+
+            </ul>
+        </nav>
+        <div class="header-right">
+            <a href="feedback.html" class="button-68" role="button">Feedback</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Guardian Link</h1>
+            <a href="about.html" class="button-68" role="button">About Us</a>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-card">
+            <div class="about-text">
+                <h2>Who we are</h2>
+                <p>Guardian Link is a smart baby monitoring system that uses machine learning to detect when a baby cries, automatically plays a soothing lullaby, and sends real-time alerts to the parent's phone. Designed especially for parents with hearing challenges, Guardian Link ensures no cry goes unheard.</p>
+
+            </div>
+            <div class="about-image">
+                <img src="D:\GuardianLinkWEB\Images\aboutus.webp" alt="About us Image">
+            </div>
+        </div>
+    </section>
+
+
+    <section class="products-section">
+        <div class="main-product-card">
+            <div class="main-product-image">
+                <img src="D:\GuardianLinkWEB\Images\features.png" alt="Products Image">
+            </div>
+            <div class="main-product-text">
+                <h2>Key Features</h2>
+                <p>The Key Features of Guardian Link.</p>
+            </div>
+        </div>
+        <div class="small-cards">
+            <div class="small-card">
+                <h4>AI Cry Detection</h4>
+                <p>Trained with real baby sounds to detect crying instantly and accurately.</p>
+            </div>
+            <div class="small-card">
+                <h4>Automatic Lullaby</h4>
+                <p>Plays gentle music to soothe the baby back to sleep without manual intervention.</p>
+            </div>
+            <div class="small-card">
+                <h4>Instant Alerts</h4>
+                <p>Notifies parents immediately via Telegram or phone alert when the baby cries.</p>
+            </div>
+            <div class="small-card">
+                <h4>Privacy First</h4>
+                <p>All recordings are processed locally and deleted automatically after analysis.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-card">
+            <div class="about-text">
+                <h2>Heard our Pitch?</h2>
+                <p>Give us some feedback on how we can improve!</p>
+                <a href="feedback.html" class="button-68" role="button">Feedback Form</a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <footer style="background:#000; color:#fff; padding:60px 20px; font-family:'Montserrat', sans-serif;">
+        <div class="footer-top" style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; text-align:left;">
+            <div style="flex:1; min-width:250px;">
+                <div class="footer-logo" style="margin-bottom:20px; text-align:center;">
+                    <img src="D:\GuardianLinkWEB\Images\LOGOCOLORED.png" alt="Shemashine Logo" style="height:60px;">
+                </div>
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <p>Guardian Link is a startup that was founded in 2022 and as won many competitions and plans on mass production of its product.</p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="index.html">→ Home</a></p>
+                <p><a href="about.html">About</a></p>
+                <p><a href="feedback.html">Feedback</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Email: guardianlink.optodex@gmail.com</p>
+                <p>Phone: +91 917 712 2282<br>Phone: +91 970 510 8899</p>
+                <p>Based in India, Ships to any country.</p>
+            </div>
+            <div>
+
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2025 Guardian Link. All rights reserved.</div>
+    </footer>
+
+    <script>
+        const header = document.getElementById('mainHeader');
+        const hero = document.querySelector('.hero');
+        window.addEventListener('scroll', () => {
+            const triggerPoint = hero.offsetHeight * 0.75;
+            if (window.scrollY > triggerPoint) {
+                header.classList.remove('transparent');
+                header.classList.add('opaque');
+            } else {
+                header.classList.remove('opaque');
+                header.classList.add('transparent');
+            }
+        });
+    </script>
+</body>
+</html>
