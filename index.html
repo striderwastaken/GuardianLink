@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardian Link | Home</title>
 
-    <!-- Google Fonts: Montserrat Light 300 and SemiBold 600 -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
 
     <style>
         ::selection {
@@ -31,6 +31,7 @@
             background: #0d1c2e;
             color: #9ef7d8;
         }
+
 
         /* Header */
         header {
@@ -94,7 +95,7 @@
             gap: 20px;
         }
 
-        /* Buttons */
+        /* Button */
         .button-68 {
             background-color: #16f2eb;
             border-radius: 8px;
@@ -121,16 +122,26 @@
                 transform: translateY(2px);
             }
 
-        /* Hero */
+        /* Hero Section */
         .hero {
+            position: relative;
             width: 100%;
             height: 100vh;
-            background: url("D:/GuardianLinkWEB/Images/INDEXHERO.png") no-repeat center center/cover;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             text-align: center;
+        }
+
+        #heroCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
         }
 
         .hero-overlay {
@@ -147,7 +158,9 @@
             position: relative;
             z-index: 2;
             color: #fff;
+            padding: 20px;
         }
+
 
             .hero-content h1 {
                 font-family: 'Montserrat', sans-serif;
@@ -159,13 +172,12 @@
                 -webkit-text-fill-color: transparent;
             }
 
-            .hero-content p {
-                font-size: 1.2rem;
-                color: #d7fef0;
-                max-width: 700px;
-                margin: 0 auto 30px;
-            }
 
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+        }
         /* About Section */
         .about-section {
             display: flex;
@@ -222,7 +234,7 @@
                 object-fit: cover;
             }
 
-        /* Products Section */
+        /* Product Section */
         .products-section {
             display: flex;
             justify-content: center;
@@ -274,10 +286,8 @@
                 font-weight: 300;
                 line-height: 1.6;
                 text-align: center;
-                color: #9ef7d8;
             }
 
-        /* Features / small cards */
         .small-cards {
             flex: 1;
             display: grid;
@@ -292,7 +302,6 @@
             padding: 30px;
             border-radius: 15px;
             text-align: center;
-            color: #9ef7d8;
             box-shadow: 0 0 15px rgba(0, 254, 56, 0.12);
             transition: all 0.3s ease;
         }
@@ -307,12 +316,6 @@
                 margin-bottom: 10px;
                 font-size: 1.5rem;
                 font-weight: 600;
-            }
-
-            .small-card p {
-                color: #9ef7d8;
-                font-size: 0.95rem;
-                line-height: 1.6;
             }
 
         /* Footer */
@@ -332,7 +335,6 @@
             color: #00fe38;
         }
 
-        .footer-section p,
         .footer-section a {
             font-weight: 300;
             font-size: 0.95rem;
@@ -363,20 +365,22 @@
                 flex-direction: column;
                 text-align: center;
             }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
         }
     </style>
-
-
-
 </head>
+
 <body>
+    <!-- Header -->
     <header class="transparent" id="mainHeader">
-        <img src="D:\GuardianLinkWEB\Images\LOGOCOLORED.png" alt="Guardian Link Logo">
+        <img src="Images/LOGOCOLORED.png" alt="Guardian Link Logo">
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-
             </ul>
         </nav>
         <div class="header-right">
@@ -384,32 +388,117 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
+        <canvas id="heroCanvas" width="1920" height="1080"></canvas>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Guardian Link</h1>
-            <a href="about.html" class="button-68" role="button">About Us</a>
+            <p>Smart baby monitoring for every parent — hearing every cry, instantly.</p>
         </div>
     </section>
 
+    <script>
+        const frameCount = 30;
+        const currentFrame = (i) => `BoxScrolling/${String(i).padStart(4, "0")}.png`;
+
+        const images = [];
+        let loaded = 0;
+        const canvas = document.getElementById("heroCanvas");
+        const context = canvas.getContext("2d");
+
+        function preload() {
+            for (let i = 1; i <= frameCount; i++) {
+                const img = new Image();
+                img.src = currentFrame(i);
+                img.onload = () => {
+                    loaded++;
+                    if (loaded === frameCount) playForward();
+                };
+                images.push(img);
+            }
+        }
+
+        function drawFrame(index) {
+            const img = images[index - 1];
+            if (!img) return;
+
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            const canvasRatio = canvas.width / canvas.height;
+            const imgRatio = img.width / img.height;
+
+            let drawWidth, drawHeight;
+            if (imgRatio > canvasRatio) {
+                drawWidth = canvas.width;
+                drawHeight = canvas.width / imgRatio;
+            } else {
+                drawHeight = canvas.height;
+                drawWidth = canvas.height * imgRatio;
+            }
+
+            const x = (canvas.width - drawWidth) / 2;
+            const y = (canvas.height - drawHeight) / 2;
+            context.drawImage(img, x, y, drawWidth, drawHeight);
+        }
+
+        function playForward() {
+            let frame = 1;
+            const fps = 30;
+            const interval = setInterval(() => {
+                drawFrame(frame);
+                frame++;
+                if (frame > frameCount) {
+                    clearInterval(interval);
+                    drawFrame(frameCount);
+                }
+            }, 1000 / fps);
+        }
+
+        preload();
+
+        // Responsive resizing
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            drawFrame(1);
+        });
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Header transparency on scroll
+        const header = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            const triggerPoint = window.innerHeight * 0.75;
+            if (window.scrollY > triggerPoint) {
+                header.classList.add('opaque');
+                header.classList.remove('transparent');
+            } else {
+                header.classList.add('transparent');
+                header.classList.remove('opaque');
+            }
+        });
+    </script>
+
+
+    <!-- About Section -->
     <section class="about-section">
         <div class="about-card">
             <div class="about-text">
                 <h2>Who we are</h2>
                 <p>Guardian Link is a smart baby monitoring system that uses machine learning to detect when a baby cries, automatically plays a soothing lullaby, and sends real-time alerts to the parent's phone. Designed especially for parents with hearing challenges, Guardian Link ensures no cry goes unheard.</p>
-
             </div>
             <div class="about-image">
-                <img src="D:\GuardianLinkWEB\Images\aboutus.webp" alt="About us Image">
+                <img src="Images/aboutus.webp" alt="About us Image">
             </div>
         </div>
     </section>
 
-
+    <!-- Products -->
     <section class="products-section">
         <div class="main-product-card">
             <div class="main-product-image">
-                <img src="D:\GuardianLinkWEB\Images\features.png" alt="Products Image">
+                <img src="Images/features.png" alt="Products Image">
             </div>
             <div class="main-product-text">
                 <h2>Key Features</h2>
@@ -436,6 +525,7 @@
         </div>
     </section>
 
+    <!-- Feedback Prompt -->
     <section class="about-section">
         <div class="about-card">
             <div class="about-text">
@@ -446,14 +536,12 @@
         </div>
     </section>
 
-
-
-
+    <!-- Footer -->
     <footer style="background:#000; color:#fff; padding:60px 20px; font-family:'Montserrat', sans-serif;">
         <div class="footer-top" style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; text-align:left;">
             <div style="flex:1; min-width:250px;">
                 <div class="footer-logo" style="margin-bottom:20px; text-align:center;">
-                    <img src="D:\GuardianLinkWEB\Images\LOGOCOLORED.png" alt="Shemashine Logo" style="height:60px;">
+                    <img src="Images\LOGOCOLORED.png" alt="Shemashine Logo" style="height:60px;">
                 </div>
                 <div class="footer-section">
                     <h3>About</h3>
@@ -478,20 +566,5 @@
         </div>
         <div class="footer-bottom">&copy; 2025 Guardian Link. All rights reserved.</div>
     </footer>
-
-    <script>
-        const header = document.getElementById('mainHeader');
-        const hero = document.querySelector('.hero');
-        window.addEventListener('scroll', () => {
-            const triggerPoint = hero.offsetHeight * 0.75;
-            if (window.scrollY > triggerPoint) {
-                header.classList.remove('transparent');
-                header.classList.add('opaque');
-            } else {
-                header.classList.remove('opaque');
-                header.classList.add('transparent');
-            }
-        });
-    </script>
 </body>
 </html>
