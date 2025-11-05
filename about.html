@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Guardian Link | About Us</title>
 
-    <!-- Google Fonts: Montserrat Light 300 and SemiBold 600 -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet" />
+
+    <!-- Lottie Player -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 
     <style>
         ::selection {
@@ -384,151 +387,242 @@
             }
         }
     </style>
-
-
-
 </head>
 <body>
+
+    <!-- Header -->
     <header class="transparent" id="mainHeader">
-        <img src="Images/LOGOCOLORED.png" alt="Guardian Link Logo">
+        <img src="Images/LOGOCOLORED.png" alt="Guardian Link Logo" />
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
-        <div class="header-right">
-            <a href="feedback.html" class="button-68" role="button">Feedback</a>
-        </div>
+        <a href="feedback.html" class="button-68">Feedback</a>
     </header>
 
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>About Us</h1>
-        </div>
-    </section>
-    <section class="about-section">
-        <div class="about-card">
-            <div class="about-text">
-                <h2>About Us</h2>
-                <p>
-                    • At Guardian Link, we believe that no parent should ever miss their baby’s cry. Our journey began with a simple question — how can parents who are hearing impaired or busy know when their baby needs them?
-                    That question inspired us to build a smart solution that combines compassion with technology. Guardian Link uses machine learning to detect a baby’s cry, plays a gentle lullaby to comfort them, and instantly alerts parents through their smartphone.
-                    <br>
-                    • We’re not just creating a product — we’re building peace of mind for families everywhere.
-                </p>
-
-            </div>
-            <div class="about-image">
-                <img src="Images\aboutus.webp" alt="About us Image">
-            </div>
-        </div>
-    </section>
-    <section class="about-section">
-        <div class="about-card">
-            <div class="about-image">
-                <img src="Images\mission.jpg" alt="Mission">
-            </div>
-            <div class="about-text">
-                <h2>Our Mission</h2>
-                <p>
-                    To make parenting more inclusive, safe, and stress-free through intelligent technology. We aim to ensure that no baby’s cry goes unheard and no parent feels disconnected from their child’s needs.
-                </p>
-
-            </div>
-
-        </div>
-    </section>
-    <section class="about-section">
-        <div class="about-card">
-            <div class="about-text">
-                <h2>Our Story</h2>
-                <p>
-                    • Guardian Link was born out of a real experience. During a family gathering, our founder noticed that his hearing-impaired cousin couldn’t hear his baby crying in another room. That moment sparked an idea — a system that could listen when parents couldn’t.
-                    <br>
-                    • From that spark came a mission — to build a device that listens, learns, and protects. What started as a small idea is now a growing innovation helping parents across the country.
-                </p>
-
-            </div>
-            <div class="about-image">
-                <img src="Images\our story.jpg" alt="About us Image">
-            </div>
-        </div>
-    </section>
-    <section class="products-section">
-        <div class="main-product-card">
-            <div class="main-product-image">
-                <img src="Images\features.png" alt="Products Image">
-            </div>
-            <div class="main-product-text">
-                <h2>Why Choose us?</h2>
-                <p>The Value Points of Guardian Link.</p>
-            </div>
-        </div>
-        <div class="small-cards">
-            <div class="small-card">
-                <h4>Inclusive Design</h4>
-                <p>Built especially for hearing-impaired parents.</p>
-            </div>
-            <div class="small-card">
-                <h4>Automatic Soothing</h4>
-                <p>Plays calming lullabies right away.</p>
-            </div>
-            <div class="small-card">
-                <h4>Instant Alerts</h4>
-                <p>Sends real-time notifications to parents.</p>
-            </div>
-            <div class="small-card">
-                <h4>Privacy First</h4>
-                <p>No cloud storage; all processing is done locally.</p>
-            </div>
-        </div>
+        <div class="hero-content"><h1>About Us</h1></div>
     </section>
 
 
+    <!-- Bout US Section -->
+    <section class="story-section" style="background:#11253B; padding:100px 10vw; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px;">
+        <div class="story-text" style="flex:1; min-width:280px;">
+            <h2 style="font-family:'Montserrat',sans-serif; font-weight:600; font-size:36px; color:#ffffff; margin-bottom:20px;">About Us</h2>
+            <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:18px; color:#d1d1d1; line-height:1.8;">
+                Guardian Link was built to bring peace of mind to every parent — especially those with hearing challenges. Our smart baby monitoring system detects crying, plays soothing lullabies, and sends real-time alerts to ensure no cry goes unheard.
+            </p>
+        </div>
 
+        <div class="story-lottie" style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
+            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+            <dotlottie-wc src="https://lottie.host/b6cd7d5c-5707-4916-82b9-b4ee27c52ccb/dEhe0hQvjs.lottie"
+                          style="width:100%; max-width:600px; height:600px;"
+                          autoplay
+                          loop>
+            </dotlottie-wc>
+        </div>
+    </section>
+    <!-- Our Mission Section -->
+    <section class="mission-section" style="background:#0d1e31; padding:100px 10vw; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px;">
+        <div class="mission-lottie" style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
+            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+            <dotlottie-wc src="https://lottie.host/40f72035-a70b-4280-88f4-46871a5054d0/jk5OkEzPn0.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
+        </div>
 
+        <div class="mission-text" style="flex:1; min-width:280px;">
+            <h2 style="font-family:'Montserrat',sans-serif; font-weight:600; font-size:36px; color:#ffffff; margin-bottom:20px;">Our Mission</h2>
+            <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:18px; color:#d1d1d1; line-height:1.8;">
+                Our mission is to make parenting accessible, safe, and inclusive.
+                By combining AI with empathy, we’re helping parents stay connected and responsive —
+                even in moments when they can’t be right beside their child.
+            </p>
+        </div>
+    </section>
 
+    <!-- Our Story Section -->
+    <section class="story-section" style="background:#11253B; padding:100px 10vw; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px;">
+        <div class="story-text" style="flex:1; min-width:280px;">
+            <h2 style="font-family:'Montserrat',sans-serif; font-weight:600; font-size:36px; color:#ffffff; margin-bottom:20px;">Our Story</h2>
+            <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:18px; color:#d1d1d1; line-height:1.8;">
+                Guardian Link started as a small idea — a way to help hearing-impaired parents detect their baby’s cries.
+                With time, it evolved into a mission to make caregiving smarter, safer, and more compassionate.
+            </p>
+        </div>
 
+        <div class="story-lottie" style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
+            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+            <dotlottie-wc src="https://lottie.host/894b0a26-9366-42a4-8527-c19bab5294b1/Z0GHaRTCpe.lottie"
+                          style="width:100%; max-width:600px; height:600px;"
+                          autoplay
+                          loop>
+            </dotlottie-wc>
+        </div>
+    </section>
+
+    <section style="background:#284666; padding:100px 10vw; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:60px; font-family:'Montserrat',sans-serif;">
+
+        <!-- Heading -->
+        <h2 style="font-size:36px; font-weight:600; color:#ffffff; margin:0; text-align:center;">
+            Why Choose us?
+        </h2>
+
+        <div style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px; width:100%;">
+            <div style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
+                <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+                <dotlottie-wc src="https://lottie.host/1fe97265-29ec-436c-9ad5-5353d610b27f/XmDnvm1loW.lottie"
+                              style="width:100%; max-width:600px; height:600px;"
+                              autoplay
+                              loop>
+                </dotlottie-wc>
+            </div>
+
+            <div style="flex:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px;">
+                <!-- Card 1 -->
+                <article class="feature-card">
+                    <div class="feature-card-content">
+                        <h5>Inclusive Design</h5>
+                        <p>Built especially for hearing-impaired parents.</p>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="feature-card">
+                    <div class="feature-card-content">
+                        <h5>Automatic Soothing</h5>
+                        <p>Plays calming lullabies right away.</p>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="feature-card">
+                    <div class="feature-card-content">
+                        <h5>Instant Alerts</h5>
+                        <p>Sends real-time notifications to parents.</p>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="feature-card">
+                    <div class="feature-card-content">
+                        <h5>Privacy First</h5>
+                        <p>No cloud storage; all processing is done locally.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .feature-card {
+            background: #153556;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .feature-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 12px 24px rgba(0,255,179,0.35);
+            }
+
+        .feature-card-content {
+            padding: 24px;
+            color: #befff3;
+            position: relative;
+            z-index: 1;
+        }
+
+            .feature-card-content h5 {
+                font-family: 'Montserrat SemiBold',sans-serif;
+                font-size: 24px;
+                font-weight: 600;
+                margin: 0 0 8px 0;
+                line-height: 1.45;
+            }
+
+            .feature-card-content p {
+                font-family: 'Montserrat Medium',sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                margin: 0;
+                line-height: 1.4;
+            }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            inset-inline: 0;
+            bottom: 0;
+            height: 80px;
+            background: linear-gradient(to top,rgba(0,255,179,0.4),transparent);
+            filter: blur(30px);
+            z-index: 0;
+        }
+
+        .feature-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.02),0 6px 12px rgba(0,0,0,0.03);
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+
+    <!-- Footer -->
+    <!-- Footer -->
     <footer style="background:#000; color:#fff; padding:60px 20px; font-family:'Montserrat', sans-serif;">
         <div class="footer-top" style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; text-align:left;">
             <div style="flex:1; min-width:250px;">
                 <div class="footer-logo" style="margin-bottom:20px; text-align:center;">
-                    <img src="Images\LOGOCOLORED.png" alt="Shemashine Logo" style="height:60px;">
+                    <img src="Images/LOGOCOLORED.png" alt="Shemashine Logo" style="height:60px;">
                 </div>
                 <div class="footer-section">
                     <h3>About</h3>
-                    <p>Guardian Link is a startup that was founded in 2022 and as won many competitions and plans on mass production of its product.</p>
+                    <p>
+                        Guardian Link is a startup founded in 2022. It has won multiple competitions
+                        and plans on mass production of its product.
+                    </p>
                 </div>
             </div>
+
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <p><a href="index.html">Home</a></p>
                 <p><a href="about.html">→ About</a></p>
                 <p><a href="feedback.html">Feedback</a></p>
             </div>
+
             <div class="footer-section">
                 <h3>Contact Info</h3>
                 <p>Email: guardianlink.optodex@gmail.com</p>
                 <p>Phone: +91 917 712 2282<br>Phone: +91 970 510 8899</p>
                 <p>Based in India, Ships to any country.</p>
             </div>
-            <div>
-
-            </div>
         </div>
-        <div class="footer-bottom">&copy; 2025 Guardian Link. All rights reserved.</div>
+
+        <div class="footer-bottom">
+            &copy; 2025 Guardian Link. All rights reserved.
+        </div>
     </footer>
 
     <script>
         const header = document.getElementById('mainHeader');
         const hero = document.querySelector('.hero');
         window.addEventListener('scroll', () => {
-            const triggerPoint = hero.offsetHeight * 0.75;
-            if (window.scrollY > triggerPoint) {
-                header.classList.remove('transparent');
+            const trigger = hero.offsetHeight * 0.75;
+            if (window.scrollY > trigger) {
                 header.classList.add('opaque');
+                header.classList.remove('transparent');
             } else {
                 header.classList.remove('opaque');
                 header.classList.add('transparent');
