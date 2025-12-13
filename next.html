@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXT | Home</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== Hero Image ===== */
+        .hero img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        /* Overlay for readability */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+
+        /* ===== Global Selection ===== */
+        ::selection {
+            background: #cc0000;
+            color: #fff;
+        }
+
+        ::-moz-selection {
+            background: #cc0000;
+            color: #fff;
+        }
+
+        /* ===== Reset ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+            background: #0d1c2e;
+            color: #ff6b6b;
+            overflow-x: hidden;
+        }
+
+        /* ===== Slim Glass Header ===== */
+        .logo {
+            position: fixed;
+            top: 30px;
+            left: 40px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .logo img {
+            width: 60%;
+            height: 60%;
+            object-fit: contain;
+        }
+
+        .dock {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            height: 60px;
+            padding: 0 25px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .dock a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+
+        .dock a:hover {
+            transform: scale(1.1);
+            color: #ff4444;
+        }
+
+        .feedback {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            height: 60px;
+            padding: 0 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.3s ease;
+            z-index: 1000;
+        }
+
+        .feedback:hover {
+            background: rgba(255, 68, 68, 0.2);
+            color: #ff4444;
+            transform: scale(1.05);
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            width: 100%;
+            max-width: 100vw;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-weight: 900;
+            font-size: 5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #ff1a1a, #990000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        /* ===== About Section ===== */
+        .about-section {
+            background: #11253B;
+            padding: 100px 10vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 60px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            font-weight: 600;
+            color: #ff4444;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            font-weight: 400;
+            color: #ffb3b3;
+        }
+
+        /* ===== Feature Cards ===== */
+        .feature-card {
+            background: #153556;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(255, 68, 68, 0.35);
+        }
+
+        .feature-card-content {
+            padding: 24px;
+            color: #ffcccc;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card-content h5 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #ff6b6b;
+        }
+
+        .feature-card-content p {
+            font-size: 18px;
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            inset-inline: 0;
+            bottom: 0;
+            height: 80px;
+            background: linear-gradient(to top, rgba(255, 68, 68, 0.4), transparent);
+            filter: blur(30px);
+            z-index: 0;
+        }
+
+        .feature-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 16px;
+            pointer-events: none;
+        }
+
+        /* Button */
+        .button-68 {
+            background-color: #ff1a1a;
+            border-radius: 8px;
+            border: none;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 10px 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 9px rgba(255, 26, 26, 0.3);
+        }
+
+        .button-68:hover {
+            background-color: #990000;
+            color: #fff;
+            box-shadow: 0 6px 12px rgba(153, 0, 0, 0.4);
+        }
+
+        .button-68:active {
+            transform: translateY(2px);
+        }
+
+        /* About Card */
+        .about-card {
+            display: flex;
+            flex-direction: row;
+            background: #0d1c2e;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            max-width: 1200px;
+            width: 100%;
+            overflow: hidden;
+            color: #ff6b6b;
+        }
+
+        .about-text {
+            padding: 50px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .about-text h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ff1a1a;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 300;
+            color: #ffb3b3;
+        }
+
+        .about-image {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Product Section */
+        .products-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 80px 20px;
+            flex-wrap: wrap;
+            background: #0d1c2e;
+        }
+
+        .main-product-card {
+            flex: 2;
+            display: flex;
+            flex-direction: row;
+            background: #11253B;
+            border-radius: 20px;
+            overflow: hidden;
+            color: #ff6b6b;
+        }
+
+        .main-product-image {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .main-product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main-product-text {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .main-product-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #ff1a1a;
+        }
+
+        .main-product-text p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.6;
+            text-align: center;
+            color: #ffb3b3;
+        }
+
+        .small-cards {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .small-card {
+            background: #0d1c2e;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 68, 68, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .small-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 25px rgba(255, 68, 68, 0.4);
+        }
+
+        .small-card h4 {
+            color: #ff1a1a;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* ===== PRODUCT HERO ===== */
+        .hero-product {
+            width: 100%;
+            min-height: 100vh;  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0d1c2e;
+            padding: 60px 20px;
+        }
+
+        .product-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 50px;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .product-block img {
+            width: 45%;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+        }
+
+        .product-info {
+            flex: 1;
+            text-align: center;
+        }
+
+        .product-info h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #ff1a1a;
+            margin-bottom: 20px;
+        }
+
+        .product-info p {
+            font-size: 1.2rem;
+            color: #ffcccc;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        /* FULL-WIDTH BUTTON */
+        .buy-btn {
+            width: 100%;
+            padding: 20px 0;
+            font-size: 1.3rem;
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(90deg, #ff1a1a, #990000);
+            border: none;
+            border-radius: 14px;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .buy-btn:hover {
+            transform: scale(1.03);
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d1c2e;
+            color: #ff6b6b;
+            padding: 60px 20px 30px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-section h3 {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #ff1a1a;
+        }
+
+        .footer-section a {
+            font-weight: 300;
+            font-size: 0.95rem;
+            color: #ff6b6b;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: #cc0000;
+        }
+
+        .footer-bottom {
+            width: 100%;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 107, 107, 0.3);
+            margin-top: 30px;
+            font-size: 0.85rem;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .logo {
+                display: flex !important;
+                position: fixed !important;
+                bottom: 18px !important;
+                left: 18px !important;
+                top: auto !important;
+                width: 56px !important;
+                height: 56px !important;
+                border-radius: 50% !important;
+                z-index: 9999 !important;
+                background: rgba(255,255,255,0.08) !important;
+                backdrop-filter: blur(12px) !important;
+                border: 1px solid rgba(255,255,255,0.12) !important;
+                box-shadow: 0 6px 20px rgba(0,0,0,0.35) !important;
+                justify-content: center;
+                align-items: center;
+                padding: 6px;
+                transition: transform 0.18s ease;
+            }
+
+            .logo img {
+                width: 68%;
+                height: 68%;
+                object-fit: contain;
+            }
+
+            .dock {
+                left: 20px;
+                transform: none;
+                gap: 15px;
+                padding: 0 20px;
+                height: 50px;
+            }
+
+            .dock a {
+                font-size: 0.9rem;
+            }
+
+            .feedback {
+                right: 20px;
+                top: 30px;
+                padding: 0 20px;
+                height: 50px;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                height: 100vh !important;
+                min-height: -webkit-fill-available;
+            }
+
+            .hero-content {
+                padding: 20px;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(2.5rem, 12vw, 4rem);
+                margin-bottom: 15px;
+            }
+
+            .hero-content p {
+                font-size: clamp(1rem, 4vw, 1.3rem);
+            }
+
+            .about-card,
+            .main-product-card,
+            .product-block {
+                flex-direction: column;
+            }
+
+            .product-block img {
+                width: 100%;
+            }
+
+            .product-block {
+                padding: 30px 20px;
+            }
+
+            .product-info h2 {
+                font-size: 2rem;
+            }
+
+            .product-info p {
+                font-size: 1rem;
+            }
+
+            .buy-btn {
+                font-size: 1.1rem;
+                padding: 18px 0;
+            }
+        }
+
+        /* Force perfect centering */
+        :root {
+            --header-height: 0px;
+        }
+
+        .hero {
+            position: relative !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+            padding: 0 !important;
+            height: 100vh !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+            box-sizing: border-box !important;
+            overflow: hidden;
+        }
+
+        .hero img {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            z-index: 0 !important;
+        }
+
+        .hero-content {
+            position: relative !important;
+            z-index: 3 !important;
+            margin: 0 !important;
+            transform: none !important;
+            padding: 24px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 10vw, 5rem);
+            line-height: 1.1;
+            margin: 0 0 20px 0;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ff1a1a, #990000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            margin: 0;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            opacity: 0.95;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --header-height: 0px;
+            }
+
+            .hero {
+                height: 100vh !important;
+                min-height: -webkit-fill-available;
+            }
+
+            .hero-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===== Slim Glass Header ===== -->
+    <header class="slim-glass-header">
+        <div class="logo">
+            <img src="Images/nxtlogsquare.png" alt="NEXT Logo">
+        </div>
+
+        <div class="dock">
+            <a href="./">home</a>
+            <a href="./about">about</a>
+        </div>
+
+        <a href="./feedback" class="feedback">feedback</a>
+    </header>
+
+    <!-- ===== Hero Section ===== -->
+    <section class="hero">
+        <img id="heroImage" src="Images/NEXTHERO.png" alt="Hero Background">
+
+        <!-- Overlay for readability -->
+        <div class="overlay"></div>
+
+        <!-- Your hero content -->
+        <div class="hero-content">
+            <h1>NEXT</h1>
+            <p>Your next look starts here.</p>
+        </div>
+    </section>
+
+    <!-- Product Hero Section -->
+    <section class="hero-product">
+        <div class="product-block">
+            <img src="Images/hoodie1.png" alt="Product Image">
+
+            <div class="product-info">
+                <h2>Red Gradient NEXT Hoodie</h2>
+                <p>Premium cotton hoodie with the iconic NEXT logo. Built for streetwear lovers who want comfort + style.</p>
+                <a href="https://forms.gle/HzUE5JEzTzNvrejS8" target="_blank" class="buy-btn" style="display: block; text-decoration: none;">Join the wait!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background:#000; color:#fff; padding:60px 20px; font-family:'Montserrat', sans-serif;">
+        <div class="footer-top" style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; text-align:left;">
+
+            <div style="flex:1; min-width:250px;">
+                <div class="footer-logo" style="margin-bottom:20px; text-align:center;">
+                    <img src="Images/nxtlog.png" alt="NEXT Logo" style="height:60px;">
+                </div>
+
+                <div class="footer-section" style="text-align:center;">
+                    <p>
+                        NEXT is a clean, modern clothing brand focused on comfort, minimal style, and everyday confidence. Simple designs, bold vibes — your next look starts here.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="./">Home</a></p>
+                <p><a href="./about">About</a></p>
+                <p><a href="./feedback">Feedback</a></p>
+                <p><a href="./next">→ Next</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Email: guardianlink.optodex@gmail.com</p>
+                <p>Phone: +91 917 712 2282<br>Phone: +91 970 510 8899</p>
+                <p>Based in India, Ships to any country.</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom" style="text-align:center; margin-top:40px;">
+            &copy; 2025 Next Streetwear. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
