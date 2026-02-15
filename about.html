@@ -1,153 +1,449 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="Images/logsquare.png">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guardian Link | About Us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Link | Founder</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- Lottie Player -->
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 
     <style>
-        /* =========================================================
-           SELECTION
-        ========================================================= */
-        ::selection {
-            background: #24a09c;
-            color: #fff;
-        }
-
-        ::-moz-selection {
-            background: #24a09c;
-            color: #fff;
-        }
-
-        /* =========================================================
-           GLOBAL RESET + BASE
-        ========================================================= */
+        /* =========================
+                   GLOBAL
+                ==========================*/
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body, html {
-            height: 100%;
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
             font-family: 'Montserrat', sans-serif;
             background: #0d1c2e;
-            color: #9ef7d8;
+            margin: 0;
+            padding: 0;
         }
 
-        /* =========================================================
-           FINAL GLASS HEADER
-        ========================================================= */
-        .logo {
-            position: fixed;
-            top: 30px;
-            left: 40px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-        }
 
-            .logo img {
-                width: 60%;
-                height: 60%;
-                object-fit: contain;
-            }
+        /* =========================
+           RIGHT ROUNDED NAVBAR (SMALLER)
+        =========================*/
 
-        .dock {
+        .navbar {
             position: fixed;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 25px;
+            right: 15px;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            height: 60px;
-            padding: 0 25px;
+            gap: 25px; /* reduced spacing */
+            padding: 10px 28px; /* smaller padding */
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(20px);
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-radius: 60px; /* slightly smaller curve */
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            align-items: center;
             z-index: 1000;
         }
 
-            .dock a {
+            .navbar a {
                 text-decoration: none;
                 color: white;
-                font-size: 1rem;
-                font-weight: 500;
+                font-weight: 600;
+                font-size: 16px; /* slightly smaller text */
                 transition: 0.3s ease;
             }
 
-                .dock a:hover {
-                    transform: scale(1.1);
+                .navbar a:hover {
+                    transform: scale(1.08);
                     color: #00f6ff;
                 }
 
-        .feedback {
-            position: fixed;
-            top: 30px;
-            right: 40px;
-            height: 60px;
-            padding: 0 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            color: white;
-            font-weight: 500;
-            text-decoration: none;
-            transition: 0.3s ease;
-            z-index: 1000;
+        /* Smaller Green Feedback Button */
+        .feedback-btn {
+            background: #00b894;
+            padding: 10px 14px; /* reduced button size */
+            border-radius: 20px;
+            font-size: 15px;
+            color: white !important;
         }
 
-            .feedback:hover {
-                background: rgba(0, 246, 255, 0.2);
-                color: #00f6ff;
+            .feedback-btn:hover {
+                background: #009e7f;
                 transform: scale(1.05);
             }
 
-        /* =========================================================
-           HERO
-        ========================================================= */
-        .hero {
-            width: 100%;
-            height: 100vh;
-            background: url("Images/HEROBACK.png") no-repeat center/cover;
+
+        /* =========================
+                   LOGO WITH GLASS CIRCLE
+                ==========================*/
+        .logo-container {
+            position: fixed;
+            top: 25px;
+            left: 20px;
+            width: 75px;
+            height: 75px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 0;
-            margin: 0;
+            z-index: 1000;
+            transition: 0.3s ease;
         }
 
-        #heroCanvas {
+            .logo-container:hover {
+                transform: scale(1.05);
+                background: rgba(255, 255, 255, 0.12);
+            }
+
+        .site-logo {
+            width: 45px;
+            height: auto;
+        }
+
+
+        /* =========================
+                   CARD SECTION
+                ==========================*/
+        .card {
+            width: 320px;
+            text-align: center;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .image-wrapper {
+            position: relative;
+        }
+
+            .image-wrapper img {
+                width: 100%;
+                display: block;
+                border-radius: 12px;
+            }
+
+        .default-img {
+            position: relative;
+            z-index: 2;
+            transition: .5s;
+        }
+
+        .hover-img {
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100%;
-            z-index: 0;
+            opacity: 0;
+            z-index: 3;
+            transition: .5s;
+        }
+
+        .shape {
+            position: absolute;
+            left: -10%;
+            width: 90%;
+            height: 120px;
+            bottom: 0;
+            transform: skewX(-20deg);
+            transform-origin: bottom;
+            transition: .5s;
+            z-index: 4;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 15px;
+        }
+
+        /* Color-specific shapes */
+        .card.green .shape {
+            background: rgba(0, 184, 148, 0.4);
+        }
+
+        .card.red .shape {
+            background: rgba(231, 76, 60, 0.4);
+        }
+
+        .card.blue .shape {
+            background: rgba(52, 152, 219, 0.4);
+        }
+
+        .about-text {
+            transform: skewX(20deg);
+            font-size: 20px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .card.green:hover .shape {
+            height: 80%;
+            background: #00b894;
+            z-index: 1;
+        }
+
+        .card.red:hover .shape {
+            height: 80%;
+            background: #e74c3c;
+            z-index: 1;
+        }
+
+        .card.blue:hover .shape {
+            height: 80%;
+            background: #3498db;
+            z-index: 1;
+        }
+
+        .card:hover .default-img {
+            opacity: 0;
+            transform: scale(1.05);
+        }
+
+        .card:hover .hover-img {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .profile-info {
+            margin-top: 18px;
+        }
+
+        .name {
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .role {
+            font-size: 16px;
+            color: #9ef7d8;
+            margin-top: 4px;
+        }
+
+        /* =========================
+                   MODAL
+                ==========================*/
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .modal-content {
+            background: #fff;
+            color: #000;
+            padding: 45px;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 12px;
+            position: relative;
+            animation: fadeIn .3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-content h2,
+        .modal-content h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .modal-title {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+
+        .modal-content.green .modal-title {
+            border-bottom: 5px solid #00b894;
+        }
+
+        .modal-content.red .modal-title {
+            border-bottom: 5px solid #e74c3c;
+        }
+
+        .modal-content.blue .modal-title {
+            border-bottom: 5px solid #3498db;
+        }
+
+
+        /* Fade‑in reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal.active {
+            animation: fadeSlideIn 0.6s ease-out forwards;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            font-size: 32px;
+            color: #6c63ff;
+            transition: .3s;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+            .social-icons a:hover {
+                color: #4b45c4;
+                transform: scale(1.2);
+            }
+
+        /* =========================
+                   MOBILE RESPONSIVE
+                ==========================*/
+        @media (max-width: 768px) {
+
+            /* Move logo container to bottom left on mobile */
+            .logo-container {
+                top: auto;
+                bottom: 15px;
+                left: 15px;
+                width: 65px;
+                height: 65px;
+            }
+
+            .site-logo {
+                width: 40px;
+            }
+
+            /* Center dock on mobile */
+            .navbar {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                top: 20px;
+                padding: 10px 18px;
+                gap: 18px;
+                border-radius: 50px;
+            }
+
+                .navbar a {
+                    font-size: 14px;
+                }
+
+            .feedback-btn {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+
+            /* Modal adjustments */
+            .modal-content {
+                width: 95%;
+                padding: 25px;
+            }
+
+            .modal-title {
+                font-size: 24px;
+            }
+
+            .modal-content h2 {
+                font-size: 18px;
+            }
+
+            .modal-content h3 {
+                font-size: 16px;
+            }
+
+            .modal-content p {
+                font-size: 14px;
+            }
+
+            .social-icons a {
+                font-size: 24px;
+                margin: 0 10px;
+            }
+
+            /* Reduce gap between founder cards on mobile */
+            .founders-container {
+                gap: 15px;
+            }
+        }
+
+        .green-underline {
+            border-bottom: 3px solid #00b894;
+            display: inline-block;
+            padding-bottom: 3px;
+        }
+
+        .red-underline {
+            border-bottom: 3px solid #e74c3c;
+            display: inline-block;
+            padding-bottom: 3px;
+        }
+
+        .blue-underline {
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+            padding-bottom: 3px;
+        }
+
+        /* =========================
+           HERO SECTION
+        ==========================*/
+        .hero-section {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: url("images/HEROBACK.png") no-repeat center/cover;
         }
 
         .hero-overlay {
@@ -160,6 +456,7 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            text-align: center;
             color: #fff;
             padding: 20px;
         }
@@ -167,470 +464,603 @@
             .hero-content h1 {
                 font-weight: 900;
                 font-size: 5rem;
-                margin-bottom: 30px;
+                margin-bottom: 20px;
                 background: linear-gradient(90deg, #16f2eb, #00fe38);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
 
-        /* =========================================================
-           ABOUT SECTION
-        ========================================================= */
-        .about {
-            margin-top: 40px;
-        }
+            .hero-content p {
+                font-size: 1.8rem;
+                font-weight: 300;
+                color: #ffffff;
+                margin: 0;
+            }
 
-        .about-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 80px 20px;
-            background: #11253B;
-        }
-
-        .about-card {
-            display: flex;
-            flex-direction: row;
+        .main-content {
+            width: 100%;
             background: #0d1c2e;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            max-width: 1200px;
-            width: 100%;
-            overflow: hidden;
-            color: #9ef7d8;
+            padding: 80px 20px 60px;
         }
 
-        .about-text {
-            padding: 50px;
-            flex: 1;
+        .founders-container {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center !important;
-            gap: 20px;
-        }
-
-            .about-text h2 {
-                display: none !important;
-            }
-
-            .about-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    font-weight: 300;
-    text-align: center;    /* centered text */
-    margin: 0 auto;        /* keeps it tidy */
-    max-width: 700px;      /* optional: prevents too-wide text */
-}
-
-
-        .about-image {
-            flex: 1;
-        }
-
-            .about-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-        /* =========================================================
-           FEATURES
-        ========================================================= */
-        .feature-card {
-            background: #153556;
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-            .feature-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 12px 24px rgba(0,255,179,0.35);
-            }
-
-        .feature-card-content {
-            padding: 24px;
-            color: #befff3;
-            position: relative;
-            z-index: 1;
-        }
-
-            .feature-card-content h5 {
-                font-size: 24px;
-                font-weight: 600;
-                margin-bottom: 8px;
-            }
-
-            .feature-card-content p {
-                font-size: 18px;
-                font-weight: 500;
-            }
-
-        /* =========================================================
-           FOOTER
-        ========================================================= */
-        footer {
-            background-color: #0d1c2e;
-            color: #9ef7d8;
-            padding: 60px 20px 30px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            text-align: center;
-        }
-
-        .footer-section h3 {
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #00fe38;
-        }
-
-        .footer-section a {
-            font-weight: 300;
-            font-size: 0.95rem;
-            color: #9ef7d8;
-            text-decoration: none;
-            line-height: 1.6;
-        }
-
-            .footer-section a:hover {
-                color: #24a09c;
-            }
-
-        .footer-bottom {
-            width: 100%;
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(158, 247, 216, 0.3);
-            margin-top: 30px;
-            font-size: 0.85rem;
-        }
-
-        /* Bottom-left glass logo */
-        .logo-bottom-left {
-            position: fixed;
-            bottom: 18px;
-            left: 18px;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            display: none;
+            gap: 60px;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.35);
-            z-index: 9999;
-            cursor: pointer;
-            transition: transform 0.18s ease;
-            padding: 6px;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-            .logo-bottom-left img {
-                width: 68%;
-                height: 68%;
-                object-fit: contain;
-            }
-
-            .logo-bottom-left:hover {
-                transform: scale(1.05);
-            }
-
-        /* =========================================================
-           RESPONSIVE
-        ========================================================= */
         @media (max-width: 768px) {
-            .logo {
-                display: none;
-            }
-
-            .logo-bottom-left {
-                display: flex;
-            }
-
-            .dock {
-                left: 20px;
-                transform: none;
-            }
-
-            .feedback {
-                right: 20px;
+            .hero-section {
+                height: 100vh;
             }
 
             .hero-content h1 {
                 font-size: 3rem;
             }
 
-            .about-card {
-                flex-direction: column;
+            .hero-content p {
+                font-size: 1.2rem;
             }
-        }
 
-        @media (max-width: 768px) {
-            .hero {
-                height: 100vh;
-                background-position: center;
+            .main-content {
+                padding: 60px 20px 40px;
             }
         }
     </style>
-
-
 </head>
+
 <body>
-    <div class="logo">
-        <img src="Images/logsquare.png" alt="Guardian Link Logo">
+    <div class="logo-container">
+        <img src="images/logsquare.png" class="site-logo" alt="Guardian Link Logo">
     </div>
 
-    <nav class="dock">
-        <a href="./">home</a>
-        <a href="./about">about</a>
+
+    <nav class="navbar">
+        <a href="./">Home</a>
+        <a href="./about">About</a>
+        <a href="./contact">Contact</a>
+        <a href="./feedback" class="feedback-btn">Feedback</a>
     </nav>
 
-    <a href="./feedback" class="feedback">feedback</a>
-
-    <!-- Logo in bottom-left glass circle -->
-    <div class="logo-bottom-left">
-        <img src="Images/logsquare.png" alt="Guardian Link Logo">
-    </div>
-
-    <!-- Hero -->
-    <section class="hero">
+    <!-- HERO SECTION -->
+    <section class="hero-section">
         <div class="hero-overlay"></div>
-        <div class="hero-content"><h1>About Us</h1></div>
-    </section>
-
-
-    <!-- Bout US Section -->
-    <section class="story-section" style="background:#11253B; padding:100px 10vw; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px;">
-        <div class="story-text" style="flex:1; min-width:280px;">
-            <h2 style="font-family:'Montserrat',sans-serif; font-weight:600; font-size:36px; color:#ffffff; margin-bottom:20px;">About Us</h2>
-            <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:18px; color:#d1d1d1; line-height:1.8;">
-                Guardian Link was built to bring peace of mind to every parent — especially those with hearing challenges. Our smart baby monitoring system detects crying, plays soothing lullabies, and sends real-time alerts to ensure no cry goes unheard.
-            </p>
-        </div>
-
-        <div class="story-lottie" style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
-            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
-            <dotlottie-wc src="https://lottie.host/b6cd7d5c-5707-4916-82b9-b4ee27c52ccb/dEhe0hQvjs.lottie"
-                          style="width:100%; max-width:600px; height:600px;"
-                          autoplay
-                          loop>
-            </dotlottie-wc>
+        <div class="hero-content">
+            <h1>Who We Are</h1>
+            <p>Three Founders. One Vision</p>
         </div>
     </section>
-    <!-- Our Mission Section -->
-    <section class="mission-section" style="background:#0d1e31; padding:100px 10vw; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px;">
-        <div class="mission-lottie" style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
-            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
-            <dotlottie-wc src="https://lottie.host/40f72035-a70b-4280-88f4-46871a5054d0/jk5OkEzPn0.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
-        </div>
 
+    <!-- OUR MISSION SECTION -->
+    <section class="mission-section" style="background:#11253B; padding:100px 10vw; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:40px;">
         <div class="mission-text" style="flex:1; min-width:280px;">
             <h2 style="font-family:'Montserrat',sans-serif; font-weight:600; font-size:36px; color:#ffffff; margin-bottom:20px;">Our Mission</h2>
             <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:18px; color:#d1d1d1; line-height:1.8;">
-                Our mission is to make parenting accessible, safe, and inclusive.
-                By combining AI with empathy, we're helping parents stay connected and responsive —
-                even in moments when they can't be right beside their child.
-            </p>
-        </div>
-    </section>
-
-    <!-- Our Story Section -->
-    <section class="story-section" style="background:#11253B; padding:100px 10vw; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px;">
-        <div class="story-text" style="flex:1; min-width:280px;">
-            <h2 style="font-family:'Montserrat',sans-serif; font-weight:600; font-size:36px; color:#ffffff; margin-bottom:20px;">Our Story</h2>
-            <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:18px; color:#d1d1d1; line-height:1.8;">
-                Guardian Link started as a small idea — a way to help hearing-impaired parents detect their baby's cries.
-                With time, it evolved into a mission to make caregiving smarter, safer, and more compassionate.
+                At Guardian Link, our mission is to build secure and intelligent technology that helps families stay connected and protected in a rapidly evolving digital world. As technology becomes more integrated into daily life, we believe parents deserve tools that provide clarity, confidence, and peace of mind.
+                <br><br>
+                We are committed to designing solutions that are thoughtful, accessible, and built around real family needs. Through responsible innovation and purposeful design, Guardian Link aims to empower parents while strengthening trust and communication within the family.
             </p>
         </div>
 
-        <div class="story-lottie" style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
-            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
-            <dotlottie-wc src="https://lottie.host/894b0a26-9366-42a4-8527-c19bab5294b1/Z0GHaRTCpe.lottie"
-                          style="width:100%; max-width:600px; height:600px;"
+        <div class="mission-lottie" style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
+            <dotlottie-wc src="https://lottie.host/c2c8324c-9ae0-44ef-872e-41fbffd6239c/PMF7FGwR6k.lottie"
+                          style="width:500px; height:500px;"
                           autoplay
                           loop>
             </dotlottie-wc>
-        </div>
-    </section>
-
-    <section style="background:#284666; padding:100px 10vw; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:60px; font-family:'Montserrat',sans-serif;">
-
-        <!-- Heading -->
-        <h2 style="font-size:36px; font-weight:600; color:#ffffff; margin:0; text-align:center;">
-            Why Choose us?
-        </h2>
-
-        <div style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px; width:100%;">
-            <div style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
-                <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
-                <dotlottie-wc src="https://lottie.host/1fe97265-29ec-436c-9ad5-5353d610b27f/XmDnvm1loW.lottie"
-                              style="width:100%; max-width:600px; height:600px;"
-                              autoplay
-                              loop>
-                </dotlottie-wc>
-            </div>
-
-            <div style="flex:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px;">
-                <!-- Card 1 -->
-                <article class="feature-card">
-                    <div class="feature-card-content">
-                        <h5>Inclusive Design</h5>
-                        <p>Built especially for hearing-impaired parents.</p>
-                    </div>
-                </article>
-
-                <!-- Card 2 -->
-                <article class="feature-card">
-                    <div class="feature-card-content">
-                        <h5>Automatic Soothing</h5>
-                        <p>Plays calming lullabies right away.</p>
-                    </div>
-                </article>
-
-                <!-- Card 3 -->
-                <article class="feature-card">
-                    <div class="feature-card-content">
-                        <h5>Instant Alerts</h5>
-                        <p>Sends real-time notifications to parents.</p>
-                    </div>
-                </article>
-
-                <!-- Card 4 -->
-                <article class="feature-card">
-                    <div class="feature-card-content">
-                        <h5>Privacy First</h5>
-                        <p>No cloud storage; all processing is done locally.</p>
-                    </div>
-                </article>
-            </div>
         </div>
     </section>
 
     <style>
-        .feature-card {
-            background: #153556;
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-            .feature-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 12px 24px rgba(0,255,179,0.35);
+        @media (max-width: 768px) {
+            .mission-section {
+                padding: 60px 10vw !important;
+                gap: 20px !important;
             }
 
-        .feature-card-content {
-            padding: 24px;
-            color: #befff3;
-            position: relative;
-            z-index: 1;
-        }
-
-            .feature-card-content h5 {
-                font-family: 'Montserrat SemiBold',sans-serif;
-                font-size: 24px;
-                font-weight: 600;
-                margin: 0 0 8px 0;
-                line-height: 1.45;
+            .mission-lottie dotlottie-wc {
+                width: 350px !important;
+                height: 350px !important;
             }
 
-            .feature-card-content p {
-                font-family: 'Montserrat Medium',sans-serif;
-                font-size: 18px;
-                font-weight: 500;
-                margin: 0;
-                line-height: 1.4;
+            .main-content h2 {
+                font-size: 36px !important;
+                margin-bottom: 40px !important;
             }
 
-        .feature-card::before {
-            content: "";
-            position: absolute;
-            inset-inline: 0;
-            bottom: 0;
-            height: 80px;
-            background: linear-gradient(to top,rgba(0,255,179,0.4),transparent);
-            filter: blur(30px);
-            z-index: 0;
-        }
+            .metrics-box {
+                padding: 40px 25px !important;
+            }
 
-        .feature-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 16px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.02),0 6px 12px rgba(0,0,0,0.03);
-            pointer-events: none;
-            z-index: 0;
+                .metrics-box h2 {
+                    font-size: 32px !important;
+                    margin-bottom: 40px !important;
+                }
         }
     </style>
-<link rel="icon" type="image/png" href="Images/logsquare.png">
-    <!-- Footer -->
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <!-- FOUNDERS HEADING -->
+        <h2 style="font-family:'Montserrat',sans-serif; font-weight:600; font-size:48px; color:#ffffff; text-align:center; margin-bottom:60px;">The Founders</h2>
+
+        <!-- FOUNDERS SECTION -->
+        <div class="founders-container">
+
+            <!-- SATVIK (LEFT - GREEN) -->
+            <div class="card green" onclick="openModal('satvik')">
+                <div class="image-wrapper">
+                    <div class="shape">
+                        <div class="about-text">About Me</div>
+                    </div>
+                    <img src="images/image1.png" class="default-img">
+                    <img src="images/image2.png" class="hover-img">
+                </div>
+
+                <div class="profile-info">
+                    <div class="name">Satvik Pullala</div>
+                    <div class="role green-underline">Founder</div>
+                </div>
+            </div>
+
+
+            <!-- PRAJWAL (CENTER - RED) -->
+            <div class="card red" onclick="openModal('prajwal')">
+                <div class="image-wrapper">
+                    <div class="shape">
+                        <div class="about-text">About Me</div>
+                    </div>
+                    <img src="images/image1.png" class="default-img">
+                    <img src="images/image2.png" class="hover-img">
+                </div>
+
+                <div class="profile-info">
+                    <div class="name">Prajwal Ugadi</div>
+                    <div class="role red-underline">Founder</div>
+                </div>
+            </div>
+
+
+            <!-- YUVRAJ (RIGHT - BLUE) -->
+            <div class="card blue" onclick="openModal('yuvraj')">
+                <div class="image-wrapper">
+                    <div class="shape">
+                        <div class="about-text">About Me</div>
+                    </div>
+                    <img src="images/image1.png" class="default-img">
+                    <img src="images/image2.png" class="hover-img">
+                </div>
+
+                <div class="profile-info">
+                    <div class="name">Yuvraj Deshaboina</div>
+                    <div class="role blue-underline">Founder</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PERFORMANCE METRICS & CONTACT SECTION -->
+    <section style="background:#0d1e31; padding:100px 10vw; font-family:'Montserrat',sans-serif;">
+        <div style="max-width:1400px; margin:0 auto; display:flex; gap:40px; flex-wrap:wrap; justify-content:center;">
+
+            <!-- Performance Metrics Box -->
+            <div class="metrics-box" style="flex:2; min-width:300px; max-width:950px; background:#11253B; border-radius:20px; padding:60px 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); display:flex; flex-direction:column; justify-content:center;">
+                <h2 style="font-size:42px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:50px;">
+                    Performance Metrics
+                </h2>
+
+                <div style="display:flex; flex-direction:column; gap:40px;">
+
+                    <!-- Cry Detection Accuracy -->
+                    <div class="metric-item">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                            <span style="font-size:20px; font-weight:600; color:#ffffff;">Cry Detection Accuracy</span>
+                            <span class="metric-value" data-target="96" style="font-size:24px; font-weight:700; color:#16f2eb;">0%</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="--bar-width:96%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div>
+                        </div>
+                    </div>
+
+                    <!-- Noise Reduction -->
+                    <div class="metric-item">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                            <span style="font-size:20px; font-weight:600; color:#ffffff;">Noise Reduction</span>
+                            <span class="metric-value" data-target="93" style="font-size:24px; font-weight:700; color:#16f2eb;">0%</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="--bar-width:93%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div>
+                        </div>
+                    </div>
+
+                    <!-- Response Time -->
+                    <div class="metric-item">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                            <span style="font-size:20px; font-weight:600; color:#ffffff;">Response Time</span>
+                            <span class="metric-value" data-target="12" data-suffix="s" style="font-size:24px; font-weight:700; color:#16f2eb;">0s</span>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="--bar-width:60%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div>
+                        </div>
+                        <div style="text-align:right; margin-top:8px; font-size:14px; color:#9ef7d8;">
+                            Maximum: 20s
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Get in Touch Box -->
+            <div style="flex:1; min-width:300px; max-width:500px; background:#11253B; border-radius:20px; padding:60px 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); display:flex; flex-direction:column; align-self:flex-start;">
+                <h2 style="font-size:42px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:20px;">
+                    Get in Touch
+                </h2>
+                <p style="font-size:18px; color:#d1d1d1; line-height:1.8; margin-bottom:50px; text-align:center;">
+                    Have questions or feedback? We'd love to hear from you. Reach out to us and let's start a conversation about how Guardian Link can help your family.
+                </p>
+
+                <div style="margin-bottom:40px;">
+                    <!-- Email -->
+                    <div style="background:#0d1c2e; padding:30px; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,0.3);">
+                        <div style="width:60px; height:60px; background:linear-gradient(135deg, #16f2eb, #00fe38); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+                            <i class="fa-solid fa-envelope" style="font-size:28px; color:#0d1c2e;"></i>
+                        </div>
+                        <h3 style="font-size:22px; font-weight:600; color:#ffffff; margin-bottom:10px; text-align:center;">Email Us</h3>
+                        <a href="mailto:guardianlink.optodex@gmail.com" style="font-size:16px; color:#16f2eb; text-decoration:none; word-break:break-word; display:block; text-align:center;">
+                            guardianlink.optodex@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Feedback Button -->
+                <a href="./feedback" style="display:block; background:linear-gradient(135deg, #16f2eb, #00fe38); color:#0d1c2e; padding:18px 50px; border-radius:50px; font-size:18px; font-weight:600; text-decoration:none; box-shadow:0 8px 25px rgba(22,242,235,0.4); transition:transform 0.3s ease, box-shadow 0.3s ease; text-align:center; max-width:300px; margin:0 auto;">
+                    Share Your Feedback
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <style>
+        .bar-container {
+            width: 100%;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 12px;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(22, 242, 235, 0.3);
+            position: relative;
+        }
+
+            .bar-fill::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                animation: shimmer 2s infinite;
+            }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .metric-item {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+            .metric-item.animate {
+                animation: fadeInUp 0.8s forwards;
+            }
+
+                .metric-item.animate:nth-child(1) {
+                    animation-delay: 0.2s;
+                }
+
+                .metric-item.animate:nth-child(2) {
+                    animation-delay: 0.4s;
+                }
+
+                .metric-item.animate:nth-child(3) {
+                    animation-delay: 0.6s;
+                }
+
+        .bar-fill {
+            width: 0 !important;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .metric-item.animate .bar-fill {
+            width: var(--bar-width) !important;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metric-item span:first-child {
+                font-size: 16px !important;
+            }
+
+            .metric-item span:last-child {
+                font-size: 20px !important;
+            }
+        }
+    </style>
+
+
+
+    <!-- SATVIK MODAL -->
+    <div class="modal" id="satvikModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('satvik')">×</span>
+            <h1 class="modal-title">Satvik Pullala</h1>
+            <div class="modal-body">
+                <h2 class="reveal">Founder & Developer</h2>
+
+                <h3 class="reveal">A little bit about Satvik Pullala...</h3>
+                <p class="reveal">
+                    Satvik, also founder of Guardian Link, passionate about leveraging technology to create safer environments for families. With expertise in software development and a keen interest in innovative solutions, he works to make parental connectivity seamless and intuitive.
+                </p>
+
+                <h3 class="reveal">What I do for Fun</h3>
+                <p class="reveal">
+                    I enjoy coding personal projects, exploring the latest tech trends, gaming with friends, and spending quality time with family.
+                </p>
+
+                <h3 class="reveal">Catch me on!</h3>
+                <div class="social-icons">
+                    <a class="reveal" href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="reveal" href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a class="reveal" href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRAJWAL MODAL -->
+    <div class="modal" id="prajwalModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('prajwal')">×</span>
+            <h1 class="modal-title">Prajwal Ugadi</h1>
+            <div class="modal-body">
+                <h2 class="reveal">Founder & Developer</h2>
+
+                <h3 class="reveal">A little bit about Prajwal Ugadi...</h3>
+                <p class="reveal">
+                    Prajwal is the founder of Guardian Link, focused on building smart and accessible technology for parents. With a background in IT and experience in software and machine learning development, he is passionate about creating practical solutions that make everyday life safer and more connected.
+                </p>
+
+                <h3 class="reveal">What I do for Fun</h3>
+                <p class="reveal">
+                    I enjoy exploring new tech ideas, playing and watching tennis, creating funny YouTube videos, playing online games on my PlayStation and laptop, and spending quality time with family.
+                </p>
+
+                <h3 class="reveal">Catch me on!</h3>
+                <div class="social-icons">
+                    <a class="reveal" href="http://www.linkedin.com/in/prajwal-ugadi-guardianlink" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a class="reveal" href="https://www.instagram.com/strider.quest" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="reveal" href="https://www.youtube.com/@strider-quest" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- YUVRAJ MODAL -->
+    <div class="modal" id="yuvrajModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('yuvraj')">×</span>
+            <h1 class="modal-title">Yuvraj Deshaboina</h1>
+            <div class="modal-body">
+                <h2 class="reveal">Founder & Developer</h2>
+
+                <h3 class="reveal">A little bit about Yuvraj Deshaboina...</h3>
+                <p class="reveal">
+                    Yuvraj, the founder of Guardian Link, dedicated to building technology that empowers parents and enhances family safety. With a strong foundation in software engineering and product development, he brings creative solutions to complex challenges.
+                </p>
+
+                <h3 class="reveal">What I do for Fun</h3>
+                <p class="reveal">
+                    I enjoy building side projects, staying active with sports, exploring new technologies, and connecting with friends and family.
+                </p>
+
+                <h3 class="reveal">Catch me on!</h3>
+                <div class="social-icons">
+                    <a class="reveal" href="https://www.instagram.com/iamyuvraj_14/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a class="reveal" href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a class="reveal" href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(person) {
+            const modal = document.getElementById(person + "Modal");
+            const modalContent = modal.querySelector(".modal-content");
+
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+
+            // Remove old color classes
+            modalContent.classList.remove("green", "red", "blue");
+
+            // Add correct color class
+            if (person === "satvik") modalContent.classList.add("green");
+            if (person === "prajwal") modalContent.classList.add("red");
+            if (person === "yuvraj") modalContent.classList.add("blue");
+
+            const reveals = modal.querySelectorAll(".reveal");
+            reveals.forEach((el, index) => {
+                el.classList.remove("active");
+                setTimeout(() => {
+                    el.classList.add("active");
+                }, index * 200);
+            });
+        }
+
+
+        function closeModal(person) {
+            const modal = document.getElementById(person + "Modal");
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+
+            const reveals = modal.querySelectorAll(".reveal");
+            reveals.forEach(el => el.classList.remove("active"));
+        }
+
+        // Close modal if clicking outside content
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener("click", function (e) {
+                if (e.target === modal) {
+                    const modalId = modal.id.replace('Modal', '');
+                    closeModal(modalId);
+                }
+            });
+        });
+
+        // Scroll animation for metrics
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px'
+        };
+
+        function animateCounter(element, target, suffix = '%') {
+            let current = 0;
+            const increment = target / 60; // 60 frames for smooth animation
+            const duration = 1500; // 1.5 seconds
+            const stepTime = duration / 60;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + suffix;
+            }, stepTime);
+
+            return timer;
+        }
+
+        let activeTimers = [];
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const metricItems = entry.target.querySelectorAll('.metric-item');
+                if (entry.isIntersecting) {
+                    metricItems.forEach(item => {
+                        item.classList.add('animate');
+
+                        // Animate the counter
+                        const valueElement = item.querySelector('.metric-value');
+                        if (valueElement) {
+                            const target = parseInt(valueElement.getAttribute('data-target'));
+                            const suffix = valueElement.getAttribute('data-suffix') || '%';
+                            const timer = animateCounter(valueElement, target, suffix);
+                            activeTimers.push(timer);
+                        }
+                    });
+                } else {
+                    // Clear all active timers
+                    activeTimers.forEach(timer => clearInterval(timer));
+                    activeTimers = [];
+
+                    metricItems.forEach(item => {
+                        item.classList.remove('animate');
+
+                        // Reset counter
+                        const valueElement = item.querySelector('.metric-value');
+                        if (valueElement) {
+                            const suffix = valueElement.getAttribute('data-suffix') || '%';
+                            valueElement.textContent = '0' + suffix;
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const metricsSection = document.querySelector('.metric-item').closest('section');
+        if (metricsSection) {
+            observer.observe(metricsSection);
+        }
+    </script>
+
     <!-- Footer -->
     <footer style="background:#000; color:#fff; padding:60px 20px; font-family:'Montserrat', sans-serif;">
         <div class="footer-top" style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; text-align:left;">
-            <div style="flex:1; min-width:250px;">
-                <div class="footer-logo" style="margin-bottom:20px; text-align:center;">
-                    <img src="Images/LOGOCOLORED.png" alt="Shemashine Logo" style="height:60px;">
+            <div style="flex:2; min-width:300px; text-align:center;">
+                <div class="footer-logo" style="margin-bottom:20px; display:flex; justify-content:center;">
+                    <img src="images/LOGOCOLORED.png" alt="Guardian Link Logo" style="height:60px;">
                 </div>
-                <div class="footer-section; text-align: center;">
-                    
-                    <p>
+                <div class="footer-section">
+                    <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6; text-align:center;">
                         Guardian Link is a startup founded in 2022. It has won multiple competitions
                         and plans on mass production of its product.
                     </p>
                 </div>
             </div>
 
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <p><a href="./">Home</a></p>
-                <p><a href="./about">→ About</a></p>
-                <p><a href="./feedback">Feedback</a></p>
-                <p><a href="./next">Next</a></p>
-            </div>
+            <div class="footer-links-container" style="flex:1; min-width:200px; display:flex; gap:40px;">
+                <div class="footer-section" style="flex:1; min-width:150px;">
+                    <h3 style="font-weight:600; margin-bottom:15px; color:#00fe38;">Quick Links</h3>
+                    <p><a href="./" class="footer-link" style="font-weight:300; font-size:0.95rem; color:#9ef7d8; text-decoration:none; line-height:1.6; display:inline-block; transition:all 0.3s ease;">→ Home</a></p>
+                    <p><a href="./about" class="footer-link" style="font-weight:300; font-size:0.95rem; color:#9ef7d8; text-decoration:none; line-height:1.6; display:inline-block; transition:all 0.3s ease;">→ About</a></p>
+                    <p><a href="./feedback" class="footer-link" style="font-weight:300; font-size:0.95rem; color:#9ef7d8; text-decoration:none; line-height:1.6; display:inline-block; transition:all 0.3s ease;">→ Feedback</a></p>
+                </div>
 
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <p>Email: guardianlink.optodex@gmail.com</p>
-                <p>Phone: +91 917 712 2282<br>Phone: +91 970 510 8899</p>
-                <p>Based in India, Ships to any country.</p>
+                <div class="footer-section contact-info-section" style="flex:1; min-width:200px;">
+                    <h3 style="font-weight:600; margin-bottom:15px; color:#00fe38;">Contact Info</h3>
+                    <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">Email: guardianlink.optodex@gmail.com</p>
+                    <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">Phone: +91 917 712 2282</p>
+                    <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">Phone: +91 970 510 8899</p>
+                    <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">Based in India, Ships to any country.</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-bottom">
+        <div class="footer-bottom" style="width:100%; text-align:center; padding-top:20px; border-top:1px solid rgba(158,247,216,0.3); margin-top:30px; font-size:0.85rem; color:#9ef7d8;">
             &copy; 2025 Guardian Link. All rights reserved.
         </div>
     </footer>
 
-    <script>
-        const header = document.getElementById('mainHeader');
-        const hero = document.querySelector('.hero');
-        window.addEventListener('scroll', () => {
-            const trigger = hero.offsetHeight * 0.75;
-            if (window.scrollY > trigger) {
-                header.classList.add('opaque');
-                header.classList.remove('transparent');
-            } else {
-                header.classList.remove('opaque');
-                header.classList.add('transparent');
+    <style>
+        .footer-link:hover {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .footer-links-container {
+                flex-direction: column !important;
+                flex-wrap: wrap !important;
             }
-        });
-    </script>
+        }
+    </style>
+
 </body>
 </html>
-
-
-
-
-
-
