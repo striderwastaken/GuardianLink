@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardian Link | About Us</title>
-    <link rel="icon" type="image/png" href="images/logsquare.png">
+    <link rel="icon" type="Image/png" href="Images/logsquare.png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -108,11 +108,11 @@
             color: #fff;
         }
 
-        .image-wrapper {
+        .Image-wrapper {
             position: relative;
         }
 
-            .image-wrapper img {
+            .Image-wrapper img {
                 width: 100%;
                 display: block;
                 border-radius: 12px;
@@ -406,7 +406,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            background: url("images/HEROBACK.png") no-repeat center/cover;
+            background: url("Images/HEROBACK.png") no-repeat center/cover;
         }
 
         .hero-overlay {
@@ -573,7 +573,7 @@
 
 <body>
     <div class="logo-container">
-        <img src="images/logsquare.png" class="site-logo" alt="Guardian Link Logo">
+        <img src="Images/logsquare.png" class="site-logo" alt="Guardian Link Logo">
     </div>
 
     <nav class="navbar">
@@ -632,10 +632,10 @@
         <div class="founders-container">
             <!-- SATVIK (LEFT - GREEN) -->
             <div class="card green" onclick="openModal('satvik')">
-                <div class="image-wrapper">
+                <div class="Image-wrapper">
                     <div class="shape"><div class="about-text">About Me</div></div>
-                    <img src="images/image1.png" class="default-img">
-                    <img src="images/image2.png" class="hover-img">
+                    <img src="Images/Image1.png" class="default-img">
+                    <img src="Images/Image2.png" class="hover-img">
                 </div>
                 <div class="profile-info">
                     <div class="name">Satvik Pullala</div>
@@ -645,10 +645,10 @@
 
             <!-- PRAJWAL (CENTER - RED) -->
             <div class="card red" onclick="openModal('prajwal')">
-                <div class="image-wrapper">
+                <div class="Image-wrapper">
                     <div class="shape"><div class="about-text">About Me</div></div>
-                    <img src="images/image1.png" class="default-img">
-                    <img src="images/image2.png" class="hover-img">
+                    <img src="Images/Image1.png" class="default-img">
+                    <img src="Images/Image2.png" class="hover-img">
                 </div>
                 <div class="profile-info">
                     <div class="name">Prajwal Ugadi</div>
@@ -658,10 +658,10 @@
 
             <!-- YUVRAJ (RIGHT - BLUE) -->
             <div class="card blue" onclick="openModal('yuvraj')">
-                <div class="image-wrapper">
+                <div class="Image-wrapper">
                     <div class="shape"><div class="about-text">About Me</div></div>
-                    <img src="images/yuvi1.png" class="default-img">
-                    <img src="images/yuvi2.png" class="hover-img">
+                    <img src="Images/yuvi1.png" class="default-img">
+                    <img src="Images/yuvi2.png" class="hover-img">
                 </div>
                 <div class="profile-info">
                     <div class="name">Yuvraj Deshaboina</div>
@@ -691,8 +691,8 @@
             </div>
 
             <div style="flex:1; min-width:300px; display:flex; flex-direction:column; align-items:center; gap:30px;">
-                <div class="competition-image-container" style="position:relative; width:400px; height:400px; max-width:100%;">
-                    <img id="comp-img" src="images/comp/com1.jpeg" alt="Competition Award" style="width:100%; height:100%; object-fit:cover; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.4); transition:opacity 0.3s ease;">
+                <div class="competition-Image-container" style="position:relative; width:400px; height:400px; max-width:100%;">
+                    <img id="comp-img" src="Images/comp/com1.jpeg" alt="Competition Award" style="width:100%; height:100%; object-fit:cover; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.4); transition:opacity 0.3s ease;">
                 </div>
 
                 <div style="display:flex; gap:15px; align-items:center;">
@@ -748,20 +748,20 @@
         }
 
         @media (max-width: 768px) {
-            .competition-image-container { width: 300px !important; height: 300px !important; }
+            .competition-Image-container { width: 300px !important; height: 300px !important; }
         }
     </style>
 
     <script>
         const competitionData = [
             {
-                image: 'images/comp/com1.jpeg',
+                Image: 'Images/comp/com1.jpeg',
                 title: 'CBSE National Science Exhibition',
                 description: 'Guardian Link reached the final judgment round of the Central Board of Secondary Education National Science Exhibition, standing among the top student innovations in the country.',
                 details: 'Although it did not win—losing to a rocket project aligned with the United Nations SDGs—reaching the national finals was a major achievement and recognition of its impact and innovation.'
             },
             {
-                image: 'images/comp/com2.jpeg',
+                Image: 'Images/comp/com2.jpeg',
                 title: 'ATL Marathon',
                 description: 'Guardian Link was first selected among the Top 500 innovations across India under the Atal Innovation Mission (ATL) initiative by the NITI Aayog. From there, it advanced into the Top 150 nationally, marking a significant milestone in its journey.',
                 details: 'Before the Top 150 selection, the team completed an intensive bootcamp where they refined the product, strengthened the business model, learned from mentors, and connected with potential investors — gaining valuable insights beyond just technical development.'
@@ -779,7 +779,7 @@
             infoElement.style.opacity = '0';
 
             setTimeout(() => {
-                imgElement.src = data.image;
+                imgElement.src = data.Image;
                 infoElement.innerHTML = `
                     <h3 style="font-size:32px; font-weight:600; color:#ffffff; margin-bottom:20px;">${data.title}</h3>
                     <p style="font-size:18px; color:#d1d1d1; line-height:1.8; margin-bottom:30px;">${data.description}</p>
@@ -807,7 +807,7 @@
         function resetAutoRotate() { clearInterval(autoRotateInterval); startAutoRotate(); }
         startAutoRotate();
 
-        const competitionSection = document.querySelector('.competition-image-container');
+        const competitionSection = document.querySelector('.competition-Image-container');
         if (competitionSection) {
             competitionSection.addEventListener('mouseenter', () => clearInterval(autoRotateInterval));
             competitionSection.addEventListener('mouseleave', startAutoRotate);
@@ -1033,7 +1033,7 @@
         <div class="footer-top" style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; text-align:left;">
             <div style="flex:2; min-width:300px; text-align:center;">
                 <div style="margin-bottom:20px; display:flex; justify-content:center;">
-                    <img src="images/LOGOCOLORED.png" alt="Guardian Link Logo" style="height:60px;">
+                    <img src="Images/LOGOCOLORED.png" alt="Guardian Link Logo" style="height:60px;">
                 </div>
                 <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6; text-align:center;">
                     Guardian Link is a startup founded in 2022. It has won multiple competitions and plans on mass production of its product.
