@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Link | Coming Soon</title>
+    <link rel="icon" type="image/png" href="images/logsquare.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;900&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            background: #0d1c2e;
+            color: #fff;
+        }
+
+        /* Animated grid background */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(22, 242, 235, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(22, 242, 235, 0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: gridPan 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes gridPan {
+            0%   { background-position: 0 0; }
+            100% { background-position: 60px 60px; }
+        }
+
+        /* Glow blobs */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            z-index: 0;
+            animation: blobFloat 8s ease-in-out infinite alternate;
+        }
+
+        .blob-1 { width: 500px; height: 500px; background: #16f2eb; top: -150px; left: -100px; animation-delay: 0s; }
+        .blob-2 { width: 400px; height: 400px; background: #00fe38; bottom: -100px; right: -100px; animation-delay: 3s; }
+        .blob-3 { width: 300px; height: 300px; background: #ffc864; top: 40%; right: 15%; animation-delay: 1.5s; opacity: 0.08; }
+
+        @keyframes blobFloat {
+            from { transform: translateY(0) scale(1); }
+            to   { transform: translateY(30px) scale(1.05); }
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 25px; right: 15px;
+            display: flex;
+            gap: 25px;
+            padding: 10px 28px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 60px;
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s ease;
+        }
+
+        .navbar a:hover { transform: scale(1.08); color: #00f6ff; }
+
+        .feedback-btn {
+            background: #00b894;
+            padding: 10px 14px;
+            border-radius: 20px;
+            font-size: 15px;
+            color: white !important;
+        }
+
+        .feedback-btn:hover { background: #009e7f; transform: scale(1.05) !important; }
+
+        .logo-container {
+            position: fixed;
+            top: 25px; left: 20px;
+            width: 75px; height: 75px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: 0.3s ease;
+            text-decoration: none;
+        }
+
+        .logo-container:hover { transform: scale(1.05); background: rgba(255,255,255,0.12); }
+        .site-logo { width: 45px; height: auto; }
+
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Status tag */
+        .status-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 200, 100, 0.08);
+            border: 1px solid rgba(255, 200, 100, 0.3);
+            border-radius: 30px;
+            padding: 6px 18px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #ffc864;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.2s forwards;
+        }
+
+        .status-dot {
+            width: 7px; height: 7px;
+            background: #ffc864;
+            border-radius: 50%;
+            animation: blink 1.2s ease-in-out infinite;
+            box-shadow: 0 0 6px #ffc864;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.2; }
+        }
+
+        /* Wrench/gear animation */
+        .icon-wrap {
+            position: relative;
+            width: 80px; height: 80px;
+            margin: 0 auto 24px;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 0.4s forwards;
+        }
+
+        .gear {
+            font-size: 70px;
+            line-height: 1;
+            display: block;
+            animation: spinGear 6s linear infinite;
+            filter: drop-shadow(0 0 12px rgba(22,242,235,0.5));
+        }
+
+        @keyframes spinGear {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        /* Oops text */
+        .oops-text {
+            font-size: clamp(70px, 14vw, 180px);
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(135deg, #16f2eb 0%, #00fe38 60%, #16f2eb 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease infinite, slideIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.6s both;
+            letter-spacing: -4px;
+        }
+
+        @keyframes gradientShift {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: scale(1.15); filter: blur(8px); }
+            to   { opacity: 1; transform: scale(1); filter: blur(0); }
+        }
+
+        /* Divider */
+        .divider {
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffc864, transparent);
+            margin: 18px auto;
+            animation: expandLine 0.8s ease 1s forwards;
+        }
+
+        @keyframes expandLine {
+            to { width: 280px; }
+        }
+
+        /* Message */
+        .message {
+            opacity: 0;
+            animation: fadeUp 0.7s ease 1.1s forwards;
+        }
+
+        .message h2 {
+            font-size: clamp(18px, 3vw, 26px);
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .message p {
+            font-size: clamp(14px, 2vw, 17px);
+            font-weight: 300;
+            color: #8fa8c0;
+            max-width: 440px;
+            line-height: 1.8;
+        }
+
+        /* Progress bar */
+        .progress-wrap {
+            margin-top: 36px;
+            width: 320px;
+            max-width: 90vw;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 1.4s forwards;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 600;
+            color: #8fa8c0;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .progress-label span:last-child { color: #ffc864; }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #16f2eb, #ffc864);
+            box-shadow: 0 0 12px rgba(22,242,235,0.4);
+            animation: fillBar 2s cubic-bezier(0.4,0,0.2,1) 1.8s forwards;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite 2s;
+        }
+
+        @keyframes fillBar { to { width: 72%; } }
+
+        @keyframes shimmer {
+            0%   { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 36px;
+            flex-wrap: wrap;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeUp 0.7s ease 1.6s forwards;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #16f2eb, #00fe38);
+            color: #0d1c2e;
+            padding: 15px 34px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(22, 242, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(22, 242, 235, 0.5);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.07);
+            color: #fff;
+            padding: 15px 34px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-3px);
+            border-color: rgba(22,242,235,0.4);
+            color: #16f2eb;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleFloat linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+            10%  { opacity: 0.5; }
+            90%  { opacity: 0.2; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { left: 50%; right: auto; transform: translateX(-50%); top: 20px; padding: 10px 18px; gap: 18px; border-radius: 50px; }
+            .navbar a { font-size: 14px; }
+            .logo-container { top: auto; bottom: 15px; left: 15px; width: 65px; height: 65px; }
+            .site-logo { width: 40px; }
+            .btn-group { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-secondary { width: 260px; justify-content: center; }
+            .oops-text { letter-spacing: -2px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-grid"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="particles" id="particles"></div>
+
+    <a href="./" class="logo-container">
+        <img src="images/logsquare.png" class="site-logo" alt="Guardian Link Logo">
+    </a>
+
+    <nav class="navbar">
+        <a href="./">Home</a>
+        <a href="./about">About</a>
+        <a href="./contact">Contact</a>
+        <a href="./feedback" class="feedback-btn">Feedback</a>
+    </nav>
+
+    <div class="container">
+
+        <div class="status-tag">
+            <span class="status-dot"></span>
+            Under Construction
+        </div>
+
+        <div class="icon-wrap">
+            <span class="gear">⚙️</span>
+        </div>
+
+        <div class="oops-text">Oops!</div>
+
+        <div class="divider"></div>
+
+        <div class="message">
+            <h2>This page is under work.</h2>
+            <p>We're building something great here. Please try again soon — it'll be worth the wait!</p>
+        </div>
+
+        <div class="progress-wrap">
+            <div class="progress-label">
+                <span>Progress</span>
+                <span>72%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <a href="./" class="btn-primary">← Back to Home</a>
+            <a href="./contact" class="btn-secondary">Contact Us</a>
+        </div>
+
+    </div>
+
+    <script>
+        const container = document.getElementById('particles');
+        for (let i = 0; i < 25; i++) {
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.width = p.style.height = (Math.random() * 3 + 2) + 'px';
+            p.style.animationDuration = (Math.random() * 12 + 8) + 's';
+            p.style.animationDelay = (Math.random() * 10) + 's';
+            p.style.background = Math.random() > 0.5 ? '#16f2eb' : '#ffc864';
+            container.appendChild(p);
+        }
+    </script>
+
+</body>
+</html>
