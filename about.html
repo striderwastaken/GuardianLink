@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guardian Link | About Us</title>
-    <link rel="icon" type="Image/png" href="Images/logsquare.png">
+    <title>Guardian Link | Founder</title>
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -108,11 +108,11 @@
             color: #fff;
         }
 
-        .Image-wrapper {
+        .image-wrapper {
             position: relative;
         }
 
-            .Image-wrapper img {
+            .image-wrapper img {
                 width: 100%;
                 display: block;
                 border-radius: 12px;
@@ -406,7 +406,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            background: url("Images/HEROBACK.png") no-repeat center/cover;
+            background: url("images/HEROBACK.png") no-repeat center/cover;
         }
 
         .hero-overlay {
@@ -616,11 +616,29 @@
 
     <style>
         @media (max-width: 768px) {
-            .mission-section { padding: 60px 10vw !important; gap: 20px !important; }
-            .mission-lottie dotlottie-wc { width: 350px !important; height: 350px !important; }
-            .main-content h2 { font-size: 36px !important; margin-bottom: 40px !important; }
-            .metrics-box { padding: 40px 25px !important; }
-            .metrics-box h2 { font-size: 32px !important; margin-bottom: 40px !important; }
+            .mission-section {
+                padding: 60px 10vw !important;
+                gap: 20px !important;
+            }
+
+            .mission-lottie dotlottie-wc {
+                width: 350px !important;
+                height: 350px !important;
+            }
+
+            .main-content h2 {
+                font-size: 36px !important;
+                margin-bottom: 40px !important;
+            }
+
+            .metrics-box {
+                padding: 40px 25px !important;
+            }
+
+                .metrics-box h2 {
+                    font-size: 32px !important;
+                    margin-bottom: 40px !important;
+                }
         }
     </style>
 
@@ -632,10 +650,10 @@
         <div class="founders-container">
             <!-- SATVIK (LEFT - GREEN) -->
             <div class="card green" onclick="openModal('satvik')">
-                <div class="Image-wrapper">
+                <div class="image-wrapper">
                     <div class="shape"><div class="about-text">About Me</div></div>
-                    <img src="Images/Image1.png" class="default-img">
-                    <img src="Images/Image2.png" class="hover-img">
+                    <img src="Images/image1.png" class="default-img">
+                    <img src="Images/image2.png" class="hover-img">
                 </div>
                 <div class="profile-info">
                     <div class="name">Satvik Pullala</div>
@@ -645,10 +663,10 @@
 
             <!-- PRAJWAL (CENTER - RED) -->
             <div class="card red" onclick="openModal('prajwal')">
-                <div class="Image-wrapper">
+                <div class="image-wrapper">
                     <div class="shape"><div class="about-text">About Me</div></div>
-                    <img src="Images/Image1.png" class="default-img">
-                    <img src="Images/Image2.png" class="hover-img">
+                    <img src="Images/image1.png" class="default-img">
+                    <img src="Images/image2.png" class="hover-img">
                 </div>
                 <div class="profile-info">
                     <div class="name">Prajwal Ugadi</div>
@@ -658,7 +676,7 @@
 
             <!-- YUVRAJ (RIGHT - BLUE) -->
             <div class="card blue" onclick="openModal('yuvraj')">
-                <div class="Image-wrapper">
+                <div class="image-wrapper">
                     <div class="shape"><div class="about-text">About Me</div></div>
                     <img src="Images/yuvi1.png" class="default-img">
                     <img src="Images/yuvi2.png" class="hover-img">
@@ -691,7 +709,7 @@
             </div>
 
             <div style="flex:1; min-width:300px; display:flex; flex-direction:column; align-items:center; gap:30px;">
-                <div class="competition-Image-container" style="position:relative; width:400px; height:400px; max-width:100%;">
+                <div class="competition-image-container" style="position:relative; width:400px; height:400px; max-width:100%;">
                     <img id="comp-img" src="Images/comp/com1.jpeg" alt="Competition Award" style="width:100%; height:100%; object-fit:cover; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.4); transition:opacity 0.3s ease;">
                 </div>
 
@@ -739,8 +757,13 @@
             transform: scale(1.1);
         }
 
-        .indicator { transition: all 0.3s ease; }
-        .indicator:hover { transform: scale(1.2); }
+        .indicator {
+            transition: all 0.3s ease;
+        }
+
+            .indicator:hover {
+                transform: scale(1.2);
+            }
 
         a[href*="docs.google.com"]:hover {
             transform: translateY(-3px);
@@ -748,20 +771,23 @@
         }
 
         @media (max-width: 768px) {
-            .competition-Image-container { width: 300px !important; height: 300px !important; }
+            .competition-image-container {
+                width: 300px !important;
+                height: 300px !important;
+            }
         }
     </style>
 
     <script>
         const competitionData = [
             {
-                Image: 'Images/comp/com1.jpeg',
+                image: 'images/comp/com1.jpeg',
                 title: 'CBSE National Science Exhibition',
                 description: 'Guardian Link reached the final judgment round of the Central Board of Secondary Education National Science Exhibition, standing among the top student innovations in the country.',
                 details: 'Although it did not win—losing to a rocket project aligned with the United Nations SDGs—reaching the national finals was a major achievement and recognition of its impact and innovation.'
             },
             {
-                Image: 'Images/comp/com2.jpeg',
+                image: 'images/comp/com2.jpeg',
                 title: 'ATL Marathon',
                 description: 'Guardian Link was first selected among the Top 500 innovations across India under the Atal Innovation Mission (ATL) initiative by the NITI Aayog. From there, it advanced into the Top 150 nationally, marking a significant milestone in its journey.',
                 details: 'Before the Top 150 selection, the team completed an intensive bootcamp where they refined the product, strengthened the business model, learned from mentors, and connected with potential investors — gaining valuable insights beyond just technical development.'
@@ -779,12 +805,12 @@
             infoElement.style.opacity = '0';
 
             setTimeout(() => {
-                imgElement.src = data.Image;
+                imgElement.src = data.image;
                 infoElement.innerHTML = `
-                    <h3 style="font-size:32px; font-weight:600; color:#ffffff; margin-bottom:20px;">${data.title}</h3>
-                    <p style="font-size:18px; color:#d1d1d1; line-height:1.8; margin-bottom:30px;">${data.description}</p>
-                    <p style="font-size:18px; color:#d1d1d1; line-height:1.8;">${data.details}</p>
-                `;
+                        <h3 style="font-size:32px; font-weight:600; color:#ffffff; margin-bottom:20px;">${data.title}</h3>
+                        <p style="font-size:18px; color:#d1d1d1; line-height:1.8; margin-bottom:30px;">${data.description}</p>
+                        <p style="font-size:18px; color:#d1d1d1; line-height:1.8;">${data.details}</p>
+                    `;
                 imgElement.style.opacity = '1';
                 infoElement.style.opacity = '1';
                 updateIndicators();
@@ -807,7 +833,7 @@
         function resetAutoRotate() { clearInterval(autoRotateInterval); startAutoRotate(); }
         startAutoRotate();
 
-        const competitionSection = document.querySelector('.competition-Image-container');
+        const competitionSection = document.querySelector('.competition-image-container');
         if (competitionSection) {
             competitionSection.addEventListener('mouseenter', () => clearInterval(autoRotateInterval));
             competitionSection.addEventListener('mouseleave', startAutoRotate);
@@ -873,21 +899,89 @@
     </section>
 
     <style>
-        .bar-container { width:100%; height:40px; background:rgba(255,255,255,0.08); border-radius:12px; overflow:hidden; position:relative; }
-        .bar-fill { height:100%; border-radius:12px; transition:width 1.5s cubic-bezier(0.4,0,0.2,1); box-shadow:0 4px 12px rgba(22,242,235,0.3); position:relative; }
-        .bar-fill::after { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); animation:shimmer 2s infinite; }
-        @keyframes shimmer { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
-        .metric-item { opacity:0; transform:translateY(20px); }
-        .metric-item.animate { animation:fadeInUp 0.8s forwards; }
-        .metric-item.animate:nth-child(1) { animation-delay:0.2s; }
-        .metric-item.animate:nth-child(2) { animation-delay:0.4s; }
-        .metric-item.animate:nth-child(3) { animation-delay:0.6s; }
-        .bar-fill { width:0 !important; transition:width 1.5s cubic-bezier(0.4,0,0.2,1); }
-        .metric-item.animate .bar-fill { width:var(--bar-width) !important; }
-        @keyframes fadeInUp { to{opacity:1; transform:translateY(0)} }
+        .bar-container {
+            width: 100%;
+            height: 40px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 12px;
+            transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
+            box-shadow: 0 4px 12px rgba(22,242,235,0.3);
+            position: relative;
+        }
+
+            .bar-fill::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                animation: shimmer 2s infinite;
+            }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%)
+            }
+
+            100% {
+                transform: translateX(100%)
+            }
+        }
+
+        .metric-item {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+            .metric-item.animate {
+                animation: fadeInUp 0.8s forwards;
+            }
+
+                .metric-item.animate:nth-child(1) {
+                    animation-delay: 0.2s;
+                }
+
+                .metric-item.animate:nth-child(2) {
+                    animation-delay: 0.4s;
+                }
+
+                .metric-item.animate:nth-child(3) {
+                    animation-delay: 0.6s;
+                }
+
+        .bar-fill {
+            width: 0 !important;
+            transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .metric-item.animate .bar-fill {
+            width: var(--bar-width) !important;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
         @media (max-width: 768px) {
-            .metric-item span:first-child { font-size:16px !important; }
-            .metric-item span:last-child { font-size:20px !important; }
+            .metric-item span:first-child {
+                font-size: 16px !important;
+            }
+
+            .metric-item span:last-child {
+                font-size: 20px !important;
+            }
         }
     </style>
 
@@ -955,7 +1049,8 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         function openModal(person) {
             const modal = document.getElementById(person + "Modal");
             const modalContent = modal.querySelector(".modal-content");
@@ -980,7 +1075,7 @@
         }
 
         document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener("click", function(e) {
+            modal.addEventListener("click", function (e) {
                 if (e.target === modal) closeModal(modal.id.replace('Modal', ''));
             });
         });
@@ -1058,4 +1153,23 @@
             </div>
         </div>
 
-        <div style="width:100%; text-align:center; padding-top:20px; border-top:1px soli
+        <div style="width:100%; text-align:center; padding-top:20px; border-top:1px solid; margin-top:30px; font-size:0.85rem; color:#9ef7d8;">
+            &copy; 2025 Guardian Link. All rights reserved.
+        </div>
+    </footer>
+
+    <style>
+        .footer-link:hover {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .footer-links-container {
+                flex-direction: column !important;
+                flex-wrap: wrap !important;
+            }
+        }
+    </style>
+
+</body>
+</html>
