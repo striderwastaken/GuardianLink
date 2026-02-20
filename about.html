@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guardian Link | Founder</title>
-
+    <title>Guardian Link | About Us</title>
+    <link rel="icon" type="image/png" href="images/logsquare.png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -13,9 +13,6 @@
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 
     <style>
-        /* =========================
-                   GLOBAL
-                ==========================*/
         * {
             margin: 0;
             padding: 0;
@@ -34,21 +31,16 @@
             padding: 0;
         }
 
-
-        /* =========================
-           RIGHT ROUNDED NAVBAR (SMALLER)
-        =========================*/
-
         .navbar {
             position: fixed;
             top: 25px;
             right: 15px;
             display: flex;
-            gap: 25px; /* reduced spacing */
-            padding: 10px 28px; /* smaller padding */
+            gap: 25px;
+            padding: 10px 28px;
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(20px);
-            border-radius: 60px; /* slightly smaller curve */
+            border-radius: 60px;
             border: 1px solid rgba(255,255,255,0.15);
             box-shadow: 0 6px 20px rgba(0,0,0,0.25);
             align-items: center;
@@ -59,7 +51,7 @@
                 text-decoration: none;
                 color: white;
                 font-weight: 600;
-                font-size: 16px; /* slightly smaller text */
+                font-size: 16px;
                 transition: 0.3s ease;
             }
 
@@ -68,10 +60,9 @@
                     color: #00f6ff;
                 }
 
-        /* Smaller Green Feedback Button */
         .feedback-btn {
             background: #00b894;
-            padding: 10px 14px; /* reduced button size */
+            padding: 10px 14px;
             border-radius: 20px;
             font-size: 15px;
             color: white !important;
@@ -82,10 +73,6 @@
                 transform: scale(1.05);
             }
 
-
-        /* =========================
-                   LOGO WITH GLASS CIRCLE
-                ==========================*/
         .logo-container {
             position: fixed;
             top: 25px;
@@ -114,10 +101,6 @@
             height: auto;
         }
 
-
-        /* =========================
-                   CARD SECTION
-                ==========================*/
         .card {
             width: 320px;
             text-align: center;
@@ -167,7 +150,6 @@
             padding: 15px;
         }
 
-        /* Color-specific shapes */
         .card.green .shape {
             background: rgba(0, 184, 148, 0.4);
         }
@@ -230,9 +212,6 @@
             margin-top: 4px;
         }
 
-        /* =========================
-                   MODAL
-                ==========================*/
         .modal {
             display: none;
             position: fixed;
@@ -256,8 +235,6 @@
             overflow-y: auto;
         }
 
-
-
         .close {
             position: absolute;
             top: 10px;
@@ -279,8 +256,7 @@
             }
         }
 
-        .modal-content h2,
-        .modal-content h3 {
+        .modal-content h2, .modal-content h3 {
             margin-top: 20px;
             margin-bottom: 10px;
         }
@@ -310,8 +286,6 @@
             border-bottom: 5px solid #3498db;
         }
 
-
-        /* Fade‑in reveal animation */
         .reveal {
             opacity: 0;
             transform: translateY(20px);
@@ -343,12 +317,7 @@
                 transform: scale(1.2);
             }
 
-        /* =========================
-                   MOBILE RESPONSIVE
-                ==========================*/
         @media (max-width: 768px) {
-
-            /* Move logo container to bottom left on mobile */
             .logo-container {
                 top: auto;
                 bottom: 15px;
@@ -361,7 +330,6 @@
                 width: 40px;
             }
 
-            /* Center dock on mobile */
             .navbar {
                 left: 50%;
                 right: auto;
@@ -381,7 +349,6 @@
                 font-size: 13px;
             }
 
-            /* Modal adjustments */
             .modal-content {
                 width: 95%;
                 padding: 25px;
@@ -408,7 +375,6 @@
                 margin: 0 10px;
             }
 
-            /* Reduce gap between founder cards on mobile */
             .founders-container {
                 gap: 15px;
             }
@@ -432,9 +398,6 @@
             padding-bottom: 3px;
         }
 
-        /* =========================
-           HERO SECTION
-        ==========================*/
         .hero-section {
             width: 100%;
             height: 100vh;
@@ -443,7 +406,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            background: url("Images/HEROBACK.png") no-repeat center/cover;
+            background: url("images/HEROBACK.png") no-repeat center/cover;
         }
 
         .hero-overlay {
@@ -510,14 +473,108 @@
                 padding: 60px 20px 40px;
             }
         }
+
+        /* ========================= MILESTONE BADGES ========================= */
+        .milestone-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50px;
+            padding: 14px 28px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+
+            .badge:hover {
+                transform: translateY(-4px);
+            }
+
+            .badge.gold {
+                border: 1px solid rgba(0,254,56,0.35);
+                box-shadow: 0 4px 20px rgba(0,254,56,0.1);
+            }
+
+            .badge.cyan {
+                border: 1px solid rgba(22,242,235,0.35);
+                box-shadow: 0 4px 20px rgba(22,242,235,0.1);
+            }
+
+            .badge.amber {
+                border: 1px solid rgba(255,200,100,0.35);
+                box-shadow: 0 4px 20px rgba(255,200,100,0.1);
+            }
+
+            .badge:hover.gold {
+                box-shadow: 0 8px 30px rgba(0,254,56,0.2);
+            }
+
+            .badge:hover.cyan {
+                box-shadow: 0 8px 30px rgba(22,242,235,0.2);
+            }
+
+            .badge:hover.amber {
+                box-shadow: 0 8px 30px rgba(255,200,100,0.2);
+            }
+
+        .badge-emoji {
+            font-size: 26px;
+            line-height: 1;
+        }
+
+        .badge-label {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        .badge-sub {
+            font-size: 11px;
+            color: #b0b8c8;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .badge.gold .badge-label {
+            color: #00fe38;
+        }
+
+        .badge.cyan .badge-label {
+            color: #16f2eb;
+        }
+
+        .badge.amber .badge-label {
+            color: #ffc864;
+        }
+
+        @media (max-width: 600px) {
+            .milestone-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .badge {
+                width: 280px;
+                justify-content: flex-start;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="logo-container">
-        <img src="Images/logsquare.png" class="site-logo" alt="Guardian Link Logo">
+        <img src="images/logsquare.png" class="site-logo" alt="Guardian Link Logo">
     </div>
-
 
     <nav class="navbar">
         <a href="./">Home</a>
@@ -530,8 +587,8 @@
     <section class="hero-section">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Who We Are</h1>
-            <p>Three Founders. One Vision</p>
+            <h1>Smart Monitoring. Real Peace of Mind.</h1>
+            <p>AI-powered baby cry detection built for accessibility and safety.</p>
         </div>
     </section>
 
@@ -543,6 +600,8 @@
                 At Guardian Link, our mission is to build secure and intelligent technology that helps families stay connected and protected in a rapidly evolving digital world. As technology becomes more integrated into daily life, we believe parents deserve tools that provide clarity, confidence, and peace of mind.
                 <br><br>
                 We are committed to designing solutions that are thoughtful, accessible, and built around real family needs. Through responsible innovation and purposeful design, Guardian Link aims to empower parents while strengthening trust and communication within the family.
+                <br><br>
+                Technology should protect families — not complicate their lives.
             </p>
         </div>
 
@@ -557,263 +616,280 @@
 
     <style>
         @media (max-width: 768px) {
-            .mission-section {
-                padding: 60px 10vw !important;
-                gap: 20px !important;
-            }
-
-            .mission-lottie dotlottie-wc {
-                width: 350px !important;
-                height: 350px !important;
-            }
-
-            .main-content h2 {
-                font-size: 36px !important;
-                margin-bottom: 40px !important;
-            }
-
-            .metrics-box {
-                padding: 40px 25px !important;
-            }
-
-                .metrics-box h2 {
-                    font-size: 32px !important;
-                    margin-bottom: 40px !important;
-                }
+            .mission-section { padding: 60px 10vw !important; gap: 20px !important; }
+            .mission-lottie dotlottie-wc { width: 350px !important; height: 350px !important; }
+            .main-content h2 { font-size: 36px !important; margin-bottom: 40px !important; }
+            .metrics-box { padding: 40px 25px !important; }
+            .metrics-box h2 { font-size: 32px !important; margin-bottom: 40px !important; }
         }
     </style>
 
     <!-- MAIN CONTENT -->
     <div class="main-content">
-        <!-- FOUNDERS HEADING -->
-        <h2 style="font-family:'Montserrat',sans-serif; font-weight:600; font-size:48px; color:#ffffff; text-align:center; margin-bottom:60px;">The Founders</h2>
+        <h2 style="font-family:'Montserrat',sans-serif; font-weight:600; font-size:48px; color:#ffffff; text-align:center; margin-bottom:10px;">The Founders</h2>
+        <h2 style="font-family:'Montserrat',sans-serif; font-weight:200; font-size:25px; color:#ffffff; text-align:center; margin-bottom:60px;">Three founders. One shared vision.</h2>
 
-        <!-- FOUNDERS SECTION -->
         <div class="founders-container">
-
             <!-- SATVIK (LEFT - GREEN) -->
             <div class="card green" onclick="openModal('satvik')">
                 <div class="image-wrapper">
-                    <div class="shape">
-                        <div class="about-text">About Me</div>
-                    </div>
-                    <img src="Images/image1.png" class="default-img">
-                    <img src="Images/image2.png" class="hover-img">
+                    <div class="shape"><div class="about-text">About Me</div></div>
+                    <img src="images/image1.png" class="default-img">
+                    <img src="images/image2.png" class="hover-img">
                 </div>
-
                 <div class="profile-info">
                     <div class="name">Satvik Pullala</div>
                     <div class="role green-underline">Founder</div>
                 </div>
             </div>
 
-
             <!-- PRAJWAL (CENTER - RED) -->
             <div class="card red" onclick="openModal('prajwal')">
                 <div class="image-wrapper">
-                    <div class="shape">
-                        <div class="about-text">About Me</div>
-                    </div>
-                    <img src="Images/image1.png" class="default-img">
-                    <img src="Images/image2.png" class="hover-img">
+                    <div class="shape"><div class="about-text">About Me</div></div>
+                    <img src="images/image1.png" class="default-img">
+                    <img src="images/image2.png" class="hover-img">
                 </div>
-
                 <div class="profile-info">
                     <div class="name">Prajwal Ugadi</div>
                     <div class="role red-underline">Founder</div>
                 </div>
             </div>
 
-
             <!-- YUVRAJ (RIGHT - BLUE) -->
             <div class="card blue" onclick="openModal('yuvraj')">
                 <div class="image-wrapper">
-                    <div class="shape">
-                        <div class="about-text">About Me</div>
-                    </div>
-                    <img src="Images/image1.png" class="default-img">
-                    <img src="Images/image2.png" class="hover-img">
+                    <div class="shape"><div class="about-text">About Me</div></div>
+                    <img src="images/yuvi1.png" class="default-img">
+                    <img src="images/yuvi2.png" class="hover-img">
                 </div>
-
                 <div class="profile-info">
                     <div class="name">Yuvraj Deshaboina</div>
                     <div class="role blue-underline">Founder</div>
                 </div>
             </div>
-
         </div>
     </div>
+
+    <!-- COMPETITIONS SECTION -->
+    <section style="background:#11253B; padding:100px 10vw; font-family:'Montserrat',sans-serif;">
+        <h2 style="font-size:48px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:60px;">
+            Milestones
+        </h2>
+
+        <div style="max-width:1200px; margin:0 auto; display:flex; align-items:center; gap:60px; flex-wrap:wrap;">
+            <div style="flex:1; min-width:300px;">
+                <div id="comp-info">
+                    <h3 style="font-size:32px; font-weight:600; color:#ffffff; margin-bottom:20px;">CBSE National Science Exhibition</h3>
+                    <p style="font-size:18px; color:#d1d1d1; line-height:1.8; margin-bottom:30px;">
+                        Guardian Link reached the final judgment round of the Central Board of Secondary Education National Science Exhibition, standing among the top student innovations in the country.
+                    </p>
+                    <p style="font-size:18px; color:#d1d1d1; line-height:1.8;">
+                        Although it did not win—losing to a rocket project aligned with the United Nations SDGs—reaching the national finals was a major achievement and recognition of its impact and innovation.
+                    </p>
+                </div>
+            </div>
+
+            <div style="flex:1; min-width:300px; display:flex; flex-direction:column; align-items:center; gap:30px;">
+                <div class="competition-image-container" style="position:relative; width:400px; height:400px; max-width:100%;">
+                    <img id="comp-img" src="images/comp/com1.jpeg" alt="Competition Award" style="width:100%; height:100%; object-fit:cover; border-radius:20px; box-shadow:0 10px 40px rgba(0,0,0,0.4); transition:opacity 0.3s ease;">
+                </div>
+
+                <div style="display:flex; gap:15px; align-items:center;">
+                    <button onclick="prevImage()" style="background:rgba(255,255,255,0.1); border:2px solid #00fe38; color:#00fe38; width:50px; height:50px; border-radius:50%; cursor:pointer; font-size:20px; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease;">←</button>
+                    <div style="display:flex; gap:10px;">
+                        <span class="indicator" onclick="goToImage(0)" data-index="0" style="width:12px; height:12px; background:#00fe38; border-radius:50%; cursor:pointer; transition:all 0.3s ease;"></span>
+                        <span class="indicator" onclick="goToImage(1)" data-index="1" style="width:12px; height:12px; background:rgba(255,255,255,0.3); border-radius:50%; cursor:pointer; transition:all 0.3s ease;"></span>
+                    </div>
+                    <button onclick="nextImage()" style="background:rgba(255,255,255,0.1); border:2px solid #00fe38; color:#00fe38; width:50px; height:50px; border-radius:50%; cursor:pointer; font-size:20px; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease;">→</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================= MILESTONE BADGES ========================= -->
+        <div class="milestone-badges">
+            <div class="badge gold">
+                <span class="badge-emoji">🏅</span>
+                <div>
+                    <div class="badge-label">National Finalist</div>
+                    <div class="badge-sub">CBSE Science Exhibition</div>
+                </div>
+            </div>
+            <div class="badge cyan">
+                <span class="badge-emoji">🚀</span>
+                <div>
+                    <div class="badge-label">Top 150 India</div>
+                    <div class="badge-sub">ATL Marathon · NITI Aayog</div>
+                </div>
+            </div>
+            <div class="badge amber">
+                <span class="badge-emoji">🎓</span>
+                <div>
+                    <div class="badge-label">Bootcamp Graduate</div>
+                    <div class="badge-sub">Atal Innovation Mission</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <style>
+        button:hover {
+            background: rgba(0, 254, 56, 0.2) !important;
+            transform: scale(1.1);
+        }
+
+        .indicator { transition: all 0.3s ease; }
+        .indicator:hover { transform: scale(1.2); }
+
+        a[href*="docs.google.com"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(22,242,235,0.6);
+        }
+
+        @media (max-width: 768px) {
+            .competition-image-container { width: 300px !important; height: 300px !important; }
+        }
+    </style>
+
+    <script>
+        const competitionData = [
+            {
+                image: 'images/comp/com1.jpeg',
+                title: 'CBSE National Science Exhibition',
+                description: 'Guardian Link reached the final judgment round of the Central Board of Secondary Education National Science Exhibition, standing among the top student innovations in the country.',
+                details: 'Although it did not win—losing to a rocket project aligned with the United Nations SDGs—reaching the national finals was a major achievement and recognition of its impact and innovation.'
+            },
+            {
+                image: 'images/comp/com2.jpeg',
+                title: 'ATL Marathon',
+                description: 'Guardian Link was first selected among the Top 500 innovations across India under the Atal Innovation Mission (ATL) initiative by the NITI Aayog. From there, it advanced into the Top 150 nationally, marking a significant milestone in its journey.',
+                details: 'Before the Top 150 selection, the team completed an intensive bootcamp where they refined the product, strengthened the business model, learned from mentors, and connected with potential investors — gaining valuable insights beyond just technical development.'
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function updateContent() {
+            const imgElement = document.getElementById('comp-img');
+            const infoElement = document.getElementById('comp-info');
+            const data = competitionData[currentIndex];
+
+            imgElement.style.opacity = '0';
+            infoElement.style.opacity = '0';
+
+            setTimeout(() => {
+                imgElement.src = data.image;
+                infoElement.innerHTML = `
+                    <h3 style="font-size:32px; font-weight:600; color:#ffffff; margin-bottom:20px;">${data.title}</h3>
+                    <p style="font-size:18px; color:#d1d1d1; line-height:1.8; margin-bottom:30px;">${data.description}</p>
+                    <p style="font-size:18px; color:#d1d1d1; line-height:1.8;">${data.details}</p>
+                `;
+                imgElement.style.opacity = '1';
+                infoElement.style.opacity = '1';
+                updateIndicators();
+            }, 300);
+        }
+
+        function updateIndicators() {
+            document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                indicator.style.background = index === currentIndex ? '#00fe38' : 'rgba(255,255,255,0.3)';
+                indicator.style.transform = index === currentIndex ? 'scale(1.2)' : 'scale(1)';
+            });
+        }
+
+        function nextImage() { currentIndex = (currentIndex + 1) % competitionData.length; updateContent(); resetAutoRotate(); }
+        function prevImage() { currentIndex = (currentIndex - 1 + competitionData.length) % competitionData.length; updateContent(); resetAutoRotate(); }
+        function goToImage(index) { currentIndex = index; updateContent(); resetAutoRotate(); }
+
+        let autoRotateInterval;
+        function startAutoRotate() { autoRotateInterval = setInterval(nextImage, 10000); }
+        function resetAutoRotate() { clearInterval(autoRotateInterval); startAutoRotate(); }
+        startAutoRotate();
+
+        const competitionSection = document.querySelector('.competition-image-container');
+        if (competitionSection) {
+            competitionSection.addEventListener('mouseenter', () => clearInterval(autoRotateInterval));
+            competitionSection.addEventListener('mouseleave', startAutoRotate);
+        }
+
+        document.getElementById('comp-info').style.transition = 'opacity 0.3s ease';
+    </script>
 
     <!-- PERFORMANCE METRICS & CONTACT SECTION -->
     <section style="background:#0d1e31; padding:100px 10vw; font-family:'Montserrat',sans-serif;">
         <div style="max-width:1400px; margin:0 auto; display:flex; gap:40px; flex-wrap:wrap; justify-content:center;">
 
-            <!-- Performance Metrics Box -->
             <div class="metrics-box" style="flex:2; min-width:300px; max-width:950px; background:#11253B; border-radius:20px; padding:60px 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); display:flex; flex-direction:column; justify-content:center;">
-                <h2 style="font-size:42px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:50px;">
-                    Performance Metrics
-                </h2>
+                <h2 style="font-size:42px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:8px;">Technical Performance</h2>
+                <p style="font-size:13px; font-weight:400; color:#7a8fa6; text-align:center; margin-bottom:50px; letter-spacing:0.3px;">Measured under controlled testing environments.</p>
 
                 <div style="display:flex; flex-direction:column; gap:40px;">
-
-                    <!-- Cry Detection Accuracy -->
                     <div class="metric-item">
                         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
                             <span style="font-size:20px; font-weight:600; color:#ffffff;">Cry Detection Accuracy</span>
                             <span class="metric-value" data-target="96" style="font-size:24px; font-weight:700; color:#16f2eb;">0%</span>
                         </div>
-                        <div class="bar-container">
-                            <div class="bar-fill" style="--bar-width:96%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div>
-                        </div>
+                        <div class="bar-container"><div class="bar-fill" style="--bar-width:96%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div></div>
                     </div>
 
-                    <!-- Noise Reduction -->
                     <div class="metric-item">
                         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
                             <span style="font-size:20px; font-weight:600; color:#ffffff;">Noise Reduction</span>
                             <span class="metric-value" data-target="93" style="font-size:24px; font-weight:700; color:#16f2eb;">0%</span>
                         </div>
-                        <div class="bar-container">
-                            <div class="bar-fill" style="--bar-width:93%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div>
-                        </div>
+                        <div class="bar-container"><div class="bar-fill" style="--bar-width:93%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div></div>
                     </div>
 
-                    <!-- Response Time -->
                     <div class="metric-item">
                         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
                             <span style="font-size:20px; font-weight:600; color:#ffffff;">Response Time</span>
                             <span class="metric-value" data-target="12" data-suffix="s" style="font-size:24px; font-weight:700; color:#16f2eb;">0s</span>
                         </div>
-                        <div class="bar-container">
-                            <div class="bar-fill" style="--bar-width:60%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div>
-                        </div>
-                        <div style="text-align:right; margin-top:8px; font-size:14px; color:#9ef7d8;">
-                            Maximum: 20s
-                        </div>
+                        <div class="bar-container"><div class="bar-fill" style="--bar-width:60%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div></div>
+                        <div style="text-align:right; margin-top:8px; font-size:14px; color:#9ef7d8;">Maximum: 20s</div>
                     </div>
-
                 </div>
             </div>
 
-            <!-- Get in Touch Box -->
             <div style="flex:1; min-width:300px; max-width:500px; background:#11253B; border-radius:20px; padding:60px 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); display:flex; flex-direction:column; align-self:flex-start;">
-                <h2 style="font-size:42px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:20px;">
-                    Get in Touch
-                </h2>
-                <p style="font-size:18px; color:#d1d1d1; line-height:1.8; margin-bottom:50px; text-align:center;">
-                    Have questions or feedback? We'd love to hear from you. Reach out to us and let's start a conversation about how Guardian Link can help your family.
-                </p>
+                <h2 style="font-size:30px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:20px;">Start the Conversation</h2>
+                <p style="font-size:18px; color:#d1d1d1; line-height:1.8; margin-bottom:50px; text-align:center;">Have questions or feedback? We'd love to hear from you.</p>
+
 
                 <div style="margin-bottom:40px;">
-                    <!-- Email -->
                     <div style="background:#0d1c2e; padding:30px; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,0.3);">
                         <div style="width:60px; height:60px; background:linear-gradient(135deg, #16f2eb, #00fe38); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
                             <i class="fa-solid fa-envelope" style="font-size:28px; color:#0d1c2e;"></i>
                         </div>
                         <h3 style="font-size:22px; font-weight:600; color:#ffffff; margin-bottom:10px; text-align:center;">Email Us</h3>
-                        <a href="mailto:guardianlink.optodex@gmail.com" style="font-size:16px; color:#16f2eb; text-decoration:none; word-break:break-word; display:block; text-align:center;">
-                            guardianlink.optodex@gmail.com
-                        </a>
+                        <span style="font-size:16px; color:#16f2eb; display:block; text-align:center; word-break:break-word;">guardianlink.optodex&#64;gmail.com</span>
                     </div>
                 </div>
 
-                <!-- Feedback Button -->
-                <a href="./feedback" style="display:block; background:linear-gradient(135deg, #16f2eb, #00fe38); color:#0d1c2e; padding:18px 50px; border-radius:50px; font-size:18px; font-weight:600; text-decoration:none; box-shadow:0 8px 25px rgba(22,242,235,0.4); transition:transform 0.3s ease, box-shadow 0.3s ease; text-align:center; max-width:300px; margin:0 auto;">
-                    Share Your Feedback
-                </a>
+                <a href="./feedback" style="display:block; background:linear-gradient(135deg, #16f2eb, #00fe38); color:#0d1c2e; padding:18px 50px; border-radius:50px; font-size:18px; font-weight:600; text-decoration:none; box-shadow:0 8px 25px rgba(22,242,235,0.4); transition:transform 0.3s ease, box-shadow 0.3s ease; text-align:center; max-width:300px; margin:0 auto;">Share Your Feedback</a>
             </div>
-
         </div>
     </section>
 
     <style>
-        .bar-container {
-            width: 100%;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .bar-fill {
-            height: 100%;
-            border-radius: 12px;
-            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 12px rgba(22, 242, 235, 0.3);
-            position: relative;
-        }
-
-            .bar-fill::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-                animation: shimmer 2s infinite;
-            }
-
-        @keyframes shimmer {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        .metric-item {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-            .metric-item.animate {
-                animation: fadeInUp 0.8s forwards;
-            }
-
-                .metric-item.animate:nth-child(1) {
-                    animation-delay: 0.2s;
-                }
-
-                .metric-item.animate:nth-child(2) {
-                    animation-delay: 0.4s;
-                }
-
-                .metric-item.animate:nth-child(3) {
-                    animation-delay: 0.6s;
-                }
-
-        .bar-fill {
-            width: 0 !important;
-            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .metric-item.animate .bar-fill {
-            width: var(--bar-width) !important;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        .bar-container { width:100%; height:40px; background:rgba(255,255,255,0.08); border-radius:12px; overflow:hidden; position:relative; }
+        .bar-fill { height:100%; border-radius:12px; transition:width 1.5s cubic-bezier(0.4,0,0.2,1); box-shadow:0 4px 12px rgba(22,242,235,0.3); position:relative; }
+        .bar-fill::after { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); animation:shimmer 2s infinite; }
+        @keyframes shimmer { 0%{transform:translateX(-100%)} 100%{transform:translateX(100%)} }
+        .metric-item { opacity:0; transform:translateY(20px); }
+        .metric-item.animate { animation:fadeInUp 0.8s forwards; }
+        .metric-item.animate:nth-child(1) { animation-delay:0.2s; }
+        .metric-item.animate:nth-child(2) { animation-delay:0.4s; }
+        .metric-item.animate:nth-child(3) { animation-delay:0.6s; }
+        .bar-fill { width:0 !important; transition:width 1.5s cubic-bezier(0.4,0,0.2,1); }
+        .metric-item.animate .bar-fill { width:var(--bar-width) !important; }
+        @keyframes fadeInUp { to{opacity:1; transform:translateY(0)} }
         @media (max-width: 768px) {
-            .metric-item span:first-child {
-                font-size: 16px !important;
-            }
-
-            .metric-item span:last-child {
-                font-size: 20px !important;
-            }
+            .metric-item span:first-child { font-size:16px !important; }
+            .metric-item span:last-child { font-size:20px !important; }
         }
     </style>
-
-
 
     <!-- SATVIK MODAL -->
     <div class="modal" id="satvikModal">
@@ -822,17 +898,10 @@
             <h1 class="modal-title">Satvik Pullala</h1>
             <div class="modal-body">
                 <h2 class="reveal">Founder & Developer</h2>
-
                 <h3 class="reveal">A little bit about Satvik Pullala...</h3>
-                <p class="reveal">
-                    Satvik, also founder of Guardian Link, passionate about leveraging technology to create safer environments for families. With expertise in software development and a keen interest in innovative solutions, he works to make parental connectivity seamless and intuitive.
-                </p>
-
+                <p class="reveal">Satvik, also founder of Guardian Link, passionate about leveraging technology to create safer environments for families. With expertise in software development and a keen interest in innovative solutions, he works to make parental connectivity seamless and intuitive.</p>
                 <h3 class="reveal">What I do for Fun</h3>
-                <p class="reveal">
-                    I enjoy coding personal projects, exploring the latest tech trends, gaming with friends, and spending quality time with family.
-                </p>
-
+                <p class="reveal">I enjoy coding personal projects, exploring the latest tech trends, gaming with friends, and spending quality time with family.</p>
                 <h3 class="reveal">Catch me on!</h3>
                 <div class="social-icons">
                     <a class="reveal" href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
@@ -850,17 +919,10 @@
             <h1 class="modal-title">Prajwal Ugadi</h1>
             <div class="modal-body">
                 <h2 class="reveal">Founder & Developer</h2>
-
                 <h3 class="reveal">A little bit about Prajwal Ugadi...</h3>
-                <p class="reveal">
-                    Prajwal is the founder of Guardian Link, focused on building smart and accessible technology for parents. With a background in IT and experience in software and machine learning development, he is passionate about creating practical solutions that make everyday life safer and more connected.
-                </p>
-
+                <p class="reveal">Prajwal is the founder of Guardian Link, focused on building smart and accessible technology for parents. With a background in IT and experience in software and machine learning development, he is passionate about creating practical solutions that make everyday life safer and more connected.</p>
                 <h3 class="reveal">What I do for Fun</h3>
-                <p class="reveal">
-                    I enjoy exploring new tech ideas, playing and watching tennis, creating funny YouTube videos, playing online games on my PlayStation and laptop, and spending quality time with family.
-                </p>
-
+                <p class="reveal">I enjoy exploring new tech ideas, playing and watching tennis, creating funny YouTube videos, playing online games on my PlayStation and laptop, and spending quality time with family.</p>
                 <h3 class="reveal">Catch me on!</h3>
                 <div class="social-icons">
                     <a class="reveal" href="http://www.linkedin.com/in/prajwal-ugadi-guardianlink" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
@@ -878,17 +940,11 @@
             <h1 class="modal-title">Yuvraj Deshaboina</h1>
             <div class="modal-body">
                 <h2 class="reveal">Founder & Developer</h2>
-
                 <h3 class="reveal">A little bit about Yuvraj Deshaboina...</h3>
-                <p class="reveal">
-                    Yuvraj, the founder of Guardian Link, dedicated to building technology that empowers parents and enhances family safety. With a strong foundation in software engineering and product development, he brings creative solutions to complex challenges.
-                </p>
-
+                <p class="reveal">Yuvraj, the founder of Guardian Link, dedicated to building technology that empowers parents and enhances family safety. With a strong foundation in software engineering and product development, he brings creative solutions to complex challenges.</p>
+                <p class="reveal" style="font-size:13px; color:#999; font-style:italic;">Please note: Yuvraj Deshaboina is no longer affiliated with Guardian Link.</p>
                 <h3 class="reveal">What I do for Fun</h3>
-                <p class="reveal">
-                    I enjoy building side projects, staying active with sports, exploring new technologies, and connecting with friends and family.
-                </p>
-
+                <p class="reveal">I enjoy building side projects, staying active with sports, exploring new technologies, and connecting with friends and family.</p>
                 <h3 class="reveal">Catch me on!</h3>
                 <div class="social-icons">
                     <a class="reveal" href="https://www.instagram.com/iamyuvraj_14/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
@@ -899,72 +955,45 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         function openModal(person) {
             const modal = document.getElementById(person + "Modal");
             const modalContent = modal.querySelector(".modal-content");
-
             modal.style.display = "flex";
             document.body.style.overflow = "hidden";
-
-            // Remove old color classes
             modalContent.classList.remove("green", "red", "blue");
-
-            // Add correct color class
             if (person === "satvik") modalContent.classList.add("green");
             if (person === "prajwal") modalContent.classList.add("red");
             if (person === "yuvraj") modalContent.classList.add("blue");
-
             const reveals = modal.querySelectorAll(".reveal");
             reveals.forEach((el, index) => {
                 el.classList.remove("active");
-                setTimeout(() => {
-                    el.classList.add("active");
-                }, index * 200);
+                setTimeout(() => el.classList.add("active"), index * 200);
             });
         }
-
 
         function closeModal(person) {
             const modal = document.getElementById(person + "Modal");
             modal.style.display = "none";
             document.body.style.overflow = "auto";
-
-            const reveals = modal.querySelectorAll(".reveal");
-            reveals.forEach(el => el.classList.remove("active"));
+            modal.querySelectorAll(".reveal").forEach(el => el.classList.remove("active"));
         }
 
-        // Close modal if clicking outside content
         document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener("click", function (e) {
-                if (e.target === modal) {
-                    const modalId = modal.id.replace('Modal', '');
-                    closeModal(modalId);
-                }
+            modal.addEventListener("click", function(e) {
+                if (e.target === modal) closeModal(modal.id.replace('Modal', ''));
             });
         });
 
-        // Scroll animation for metrics
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '0px'
-        };
-
         function animateCounter(element, target, suffix = '%') {
             let current = 0;
-            const increment = target / 60; // 60 frames for smooth animation
-            const duration = 1500; // 1.5 seconds
-            const stepTime = duration / 60;
-
+            const increment = target / 60;
+            const stepTime = 1500 / 60;
             const timer = setInterval(() => {
                 current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
+                if (current >= target) { current = target; clearInterval(timer); }
                 element.textContent = Math.floor(current) + suffix;
             }, stepTime);
-
             return timer;
         }
 
@@ -976,67 +1005,52 @@
                 if (entry.isIntersecting) {
                     metricItems.forEach(item => {
                         item.classList.add('animate');
-
-                        // Animate the counter
                         const valueElement = item.querySelector('.metric-value');
                         if (valueElement) {
                             const target = parseInt(valueElement.getAttribute('data-target'));
                             const suffix = valueElement.getAttribute('data-suffix') || '%';
-                            const timer = animateCounter(valueElement, target, suffix);
-                            activeTimers.push(timer);
+                            activeTimers.push(animateCounter(valueElement, target, suffix));
                         }
                     });
                 } else {
-                    // Clear all active timers
                     activeTimers.forEach(timer => clearInterval(timer));
                     activeTimers = [];
-
                     metricItems.forEach(item => {
                         item.classList.remove('animate');
-
-                        // Reset counter
                         const valueElement = item.querySelector('.metric-value');
-                        if (valueElement) {
-                            const suffix = valueElement.getAttribute('data-suffix') || '%';
-                            valueElement.textContent = '0' + suffix;
-                        }
+                        if (valueElement) valueElement.textContent = '0' + (valueElement.getAttribute('data-suffix') || '%');
                     });
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.3 });
 
-        const metricsSection = document.querySelector('.metric-item').closest('section');
-        if (metricsSection) {
-            observer.observe(metricsSection);
-        }
+        const metricsSection = document.querySelector('.metric-item')?.closest('section');
+        if (metricsSection) observer.observe(metricsSection);
     </script>
 
     <!-- Footer -->
     <footer style="background:#000; color:#fff; padding:60px 20px; font-family:'Montserrat', sans-serif;">
         <div class="footer-top" style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; text-align:left;">
             <div style="flex:2; min-width:300px; text-align:center;">
-                <div class="footer-logo" style="margin-bottom:20px; display:flex; justify-content:center;">
-                    <img src="Images/LOGOCOLORED.png" alt="Guardian Link Logo" style="height:60px;">
+                <div style="margin-bottom:20px; display:flex; justify-content:center;">
+                    <img src="images/LOGOCOLORED.png" alt="Guardian Link Logo" style="height:60px;">
                 </div>
-                <div class="footer-section">
-                    <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6; text-align:center;">
-                        Guardian Link is a startup founded in 2022. It has won multiple competitions
-                        and plans on mass production of its product.
-                    </p>
-                </div>
+                <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6; text-align:center;">
+                    Guardian Link is a startup founded in 2022. It has won multiple competitions and plans on mass production of its product.
+                </p>
             </div>
 
             <div class="footer-links-container" style="flex:1; min-width:200px; display:flex; gap:40px;">
-                <div class="footer-section" style="flex:1; min-width:150px;">
+                <div style="flex:1; min-width:150px;">
                     <h3 style="font-weight:600; margin-bottom:15px; color:#00fe38;">Quick Links</h3>
                     <p><a href="./" class="footer-link" style="font-weight:300; font-size:0.95rem; color:#9ef7d8; text-decoration:none; line-height:1.6; display:inline-block; transition:all 0.3s ease;">→ Home</a></p>
                     <p><a href="./about" class="footer-link" style="font-weight:300; font-size:0.95rem; color:#9ef7d8; text-decoration:none; line-height:1.6; display:inline-block; transition:all 0.3s ease;">→ About</a></p>
                     <p><a href="./feedback" class="footer-link" style="font-weight:300; font-size:0.95rem; color:#9ef7d8; text-decoration:none; line-height:1.6; display:inline-block; transition:all 0.3s ease;">→ Feedback</a></p>
                 </div>
 
-                <div class="footer-section contact-info-section" style="flex:1; min-width:200px;">
+                <div style="flex:1; min-width:200px;">
                     <h3 style="font-weight:600; margin-bottom:15px; color:#00fe38;">Contact Info</h3>
-                    <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">Email: guardianlink.optodex@gmail.com</p>
+                    <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">Email: guardianlink.optodex&#64;gmail.com</p>
                     <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">Phone: +91 917 712 2282</p>
                     <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">Phone: +91 970 510 8899</p>
                     <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">Based in India, Ships to any country.</p>
@@ -1044,24 +1058,4 @@
             </div>
         </div>
 
-        <div class="footer-bottom" style="width:100%; text-align:center; padding-top:20px; border-top:1px solid rgba(158,247,216,0.3); margin-top:30px; font-size:0.85rem; color:#9ef7d8;">
-            &copy; 2025 Guardian Link. All rights reserved.
-        </div>
-    </footer>
-
-    <style>
-        .footer-link:hover {
-            transform: translateX(5px);
-        }
-
-        @media (max-width: 768px) {
-            .footer-links-container {
-                flex-direction: column !important;
-                flex-wrap: wrap !important;
-            }
-        }
-    </style>
-
-</body>
-</html>
-
+        <div style="width:100%; text-align:center; padding-top:20px; border-top:1px soli
