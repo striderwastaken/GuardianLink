@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guardian Link | About Us</title>
-    <link rel="icon" type="image/png" href="Images/logsquare.png">
+    <link rel="icon" type="image/png" href="images/logsquare.png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -406,7 +406,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            background: url("Images/HEROBACK.png") no-repeat center/cover;
+            background: url("images/HEROBACK.png") no-repeat center/cover;
         }
 
         .hero-overlay {
@@ -568,6 +568,58 @@
                 justify-content: flex-start;
             }
         }
+
+        /* ========================= RATINGS ========================= */
+        .rating-card {
+            background: #11253B;
+            border-radius: 16px;
+            padding: 25px 30px;
+            border: 1px solid rgba(22,242,235,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            flex: 1;
+            min-width: 220px;
+        }
+
+            .rating-card:hover {
+                transform: translateY(-4px);
+            }
+
+        .ratings-title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        @media (min-width: 769px) {
+            .ratings-title {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ratings-row {
+                flex-direction: column !important;
+            }
+
+            .rating-card {
+                min-width: 100% !important;
+            }
+
+            .proto-ratings-wrapper {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+                .proto-ratings-wrapper > div:first-child {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                }
+        }
     </style>
 </head>
 
@@ -724,7 +776,7 @@
             </div>
         </div>
 
-        <!-- ========================= MILESTONE BADGES ========================= -->
+        <!-- MILESTONE BADGES -->
         <div class="milestone-badges">
             <div class="badge gold">
                 <span class="badge-emoji">🏅</span>
@@ -748,7 +800,69 @@
                 </div>
             </div>
         </div>
+    </section>
 
+    <!-- ALL THE PROTOTYPES + RATINGS SECTION -->
+    <section style="background:#0d1c2e; padding:100px 10vw; font-family:'Montserrat',sans-serif;">
+        <h2 style="font-size:48px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:60px;">
+            All the Prototypes
+        </h2>
+
+        <!-- PC: Side by side | Mobile: Stacked -->
+        <div class="proto-ratings-wrapper" style="max-width:1400px; margin:0 auto; display:flex; gap:60px; flex-wrap:wrap; align-items:flex-start; justify-content:center;">
+
+            <!-- LEFT: Carousel -->
+            <div style="flex:1; min-width:300px; max-width:600px;">
+                <div style="position:relative; width:100%; border-radius:20px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.5);">
+                    <img id="proto-img" src="Images/proto/proto1.jpeg" alt="Prototype"
+                         style="width:100%; height:420px; object-fit:cover; display:block; transition:opacity 0.4s ease;">
+                </div>
+
+                <p id="proto-caption" style="text-align:center; margin-top:20px; font-size:16px; color:#d1d1d1; min-height:30px; transition:opacity 0.4s ease;">Prototype 1 — Initial concept build.</p>
+
+                <div style="display:flex; justify-content:center; align-items:center; gap:20px; margin-top:20px;">
+                    <button onclick="prevProto()" style="background:rgba(255,255,255,0.1); border:2px solid #16f2eb; color:#16f2eb; width:50px; height:50px; border-radius:50%; cursor:pointer; font-size:20px; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease;">←</button>
+
+                    <div style="display:flex; gap:12px;" id="proto-indicators">
+                        <span onclick="goToProto(0)" style="width:12px; height:12px; background:#16f2eb; border-radius:50%; cursor:pointer; transition:all 0.3s ease; transform:scale(1.2);"></span>
+                        <span onclick="goToProto(1)" style="width:12px; height:12px; background:rgba(255,255,255,0.3); border-radius:50%; cursor:pointer; transition:all 0.3s ease;"></span>
+                        <span onclick="goToProto(2)" style="width:12px; height:12px; background:rgba(255,255,255,0.3); border-radius:50%; cursor:pointer; transition:all 0.3s ease;"></span>
+                        <span onclick="goToProto(3)" style="width:12px; height:12px; background:rgba(255,255,255,0.3); border-radius:50%; cursor:pointer; transition:all 0.3s ease;"></span>
+                        <span onclick="goToProto(4)" style="width:12px; height:12px; background:rgba(255,255,255,0.3); border-radius:50%; cursor:pointer; transition:all 0.3s ease;"></span>
+                    </div>
+
+                    <button onclick="nextProto()" style="background:rgba(255,255,255,0.1); border:2px solid #16f2eb; color:#16f2eb; width:50px; height:50px; border-radius:50%; cursor:pointer; font-size:20px; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease;">→</button>
+                </div>
+
+                <p style="text-align:center; margin-top:12px; font-size:14px; color:#7a8fa6;">
+                    <span id="proto-counter">1</span> / 5
+                </p>
+            </div>
+
+            <!-- RIGHT (PC) / BELOW (Mobile): Ratings -->
+            <div style="flex:1; min-width:300px; max-width:550px; display:flex; flex-direction:column; gap:20px;">
+                <h2 class="ratings-title">What People Say</h2>
+
+                <div class="rating-card">
+                    <div style="color:#ffc864; font-size:20px; margin-bottom:10px;">★★★★★</div>
+                    <p style="font-size:15px; color:#d1d1d1; line-height:1.7; margin-bottom:14px; font-style:italic;">"Guardian Link gave us so much peace of mind. We could finally sleep knowing our baby was being monitored."</p>
+                    <span style="font-size:14px; font-weight:600; color:#16f2eb;">— Priya M.</span>
+                </div>
+
+                <div class="rating-card">
+                    <div style="color:#ffc864; font-size:20px; margin-bottom:10px;">★★★★★</div>
+                    <p style="font-size:15px; color:#d1d1d1; line-height:1.7; margin-bottom:14px; font-style:italic;">"Incredible technology from such a young team. The accuracy of cry detection is genuinely impressive."</p>
+                    <span style="font-size:14px; font-weight:600; color:#16f2eb;">— Arjun R.</span>
+                </div>
+
+                <div class="rating-card">
+                    <div style="color:#ffc864; font-size:20px; margin-bottom:10px;">★★★★★</div>
+                    <p style="font-size:15px; color:#d1d1d1; line-height:1.7; margin-bottom:14px; font-style:italic;">"Simple to set up, reliable, and the notifications are instant. Exactly what new parents need."</p>
+                    <span style="font-size:14px; font-weight:600; color:#16f2eb;">— Sneha K.</span>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <style>
@@ -781,13 +895,13 @@
     <script>
         const competitionData = [
             {
-                image: 'Images/comp/com1.jpeg',
+                image: 'images/comp/com1.jpeg',
                 title: 'CBSE National Science Exhibition',
                 description: 'Guardian Link reached the final judgment round of the Central Board of Secondary Education National Science Exhibition, standing among the top student innovations in the country.',
                 details: 'Although it did not win—losing to a rocket project aligned with the United Nations SDGs—reaching the national finals was a major achievement and recognition of its impact and innovation.'
             },
             {
-                image: 'Images/comp/com2.jpeg',
+                image: 'images/comp/com2.jpeg',
                 title: 'ATL Marathon',
                 description: 'Guardian Link was first selected among the Top 500 innovations across India under the Atal Innovation Mission (ATL) initiative by the NITI Aayog. From there, it advanced into the Top 150 nationally, marking a significant milestone in its journey.',
                 details: 'Before the Top 150 selection, the team completed an intensive bootcamp where they refined the product, strengthened the business model, learned from mentors, and connected with potential investors — gaining valuable insights beyond just technical development.'
@@ -807,10 +921,10 @@
             setTimeout(() => {
                 imgElement.src = data.image;
                 infoElement.innerHTML = `
-                        <h3 style="font-size:32px; font-weight:600; color:#ffffff; margin-bottom:20px;">${data.title}</h3>
-                        <p style="font-size:18px; color:#d1d1d1; line-height:1.8; margin-bottom:30px;">${data.description}</p>
-                        <p style="font-size:18px; color:#d1d1d1; line-height:1.8;">${data.details}</p>
-                    `;
+                            <h3 style="font-size:32px; font-weight:600; color:#ffffff; margin-bottom:20px;">${data.title}</h3>
+                            <p style="font-size:18px; color:#d1d1d1; line-height:1.8; margin-bottom:30px;">${data.description}</p>
+                            <p style="font-size:18px; color:#d1d1d1; line-height:1.8;">${data.details}</p>
+                        `;
                 imgElement.style.opacity = '1';
                 infoElement.style.opacity = '1';
                 updateIndicators();
@@ -840,6 +954,49 @@
         }
 
         document.getElementById('comp-info').style.transition = 'opacity 0.3s ease';
+
+        // ========================= PROTOTYPE CAROUSEL =========================
+        const protoData = [
+            { image: 'Images/proto/proto1.jpeg', caption: 'Prototype 1 — Initial concept build.' },
+            { image: 'Images/proto/proto2.jpeg', caption: 'Prototype 2 — Refined hardware.' },
+            { image: 'Images/proto/proto3.jpeg', caption: 'Prototype 3 — Improved enclosure and components.' },
+            { image: 'Images/proto/proto4.jpeg', caption: 'Prototype 4 — Software and hardware integration.' },
+            { image: 'Images/proto/proto5.jpeg', caption: 'Prototype 5 — Non Production Prototype.' }
+        ];
+
+        let protoIndex = 0;
+
+        function updateProto() {
+            const img = document.getElementById('proto-img');
+            const caption = document.getElementById('proto-caption');
+            const counter = document.getElementById('proto-counter');
+            const indicators = document.getElementById('proto-indicators').children;
+
+            img.style.opacity = '0';
+            caption.style.opacity = '0';
+
+            setTimeout(() => {
+                img.src = protoData[protoIndex].image;
+                caption.textContent = protoData[protoIndex].caption;
+                counter.textContent = protoIndex + 1;
+                img.style.opacity = '1';
+                caption.style.opacity = '1';
+
+                Array.from(indicators).forEach((dot, i) => {
+                    dot.style.background = i === protoIndex ? '#16f2eb' : 'rgba(255,255,255,0.3)';
+                    dot.style.transform = i === protoIndex ? 'scale(1.2)' : 'scale(1)';
+                });
+            }, 300);
+        }
+
+        function nextProto() { protoIndex = (protoIndex + 1) % protoData.length; updateProto(); resetProtoAuto(); }
+        function prevProto() { protoIndex = (protoIndex - 1 + protoData.length) % protoData.length; updateProto(); resetProtoAuto(); }
+        function goToProto(i) { protoIndex = i; updateProto(); resetProtoAuto(); }
+
+        let protoAutoInterval;
+        function startProtoAuto() { protoAutoInterval = setInterval(nextProto, 8000); }
+        function resetProtoAuto() { clearInterval(protoAutoInterval); startProtoAuto(); }
+        startProtoAuto();
     </script>
 
     <!-- PERFORMANCE METRICS & CONTACT SECTION -->
@@ -881,7 +1038,6 @@
             <div style="flex:1; min-width:300px; max-width:500px; background:#11253B; border-radius:20px; padding:60px 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); display:flex; flex-direction:column; align-self:flex-start;">
                 <h2 style="font-size:30px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:20px;">Start the Conversation</h2>
                 <p style="font-size:18px; color:#d1d1d1; line-height:1.8; margin-bottom:50px; text-align:center;">Have questions or feedback? We'd love to hear from you.</p>
-
 
                 <div style="margin-bottom:40px;">
                     <div style="background:#0d1c2e; padding:30px; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,0.3);">
@@ -1173,5 +1329,3 @@
 
 </body>
 </html>
-
-
