@@ -8,71 +8,10 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;900&display=swap" rel="stylesheet">
+    <!-- Lottie Player -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 
     <style>
-        /* ===== Hero Video ===== */
-        .hero video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-        }
-
-        /* Overlay for readability */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.45);
-            z-index: 1;
-        }
-
-        /* ===== Glass Pause Button ===== */
-        .glass-btn {
-            position: absolute;
-            bottom: 40px;
-            right: 40px;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(15px);
-            color: white;
-            font-size: 32px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            z-index: 3;
-            transition: 0.3s ease;
-        }
-
-            .glass-btn:hover {
-                background: rgba(255,255,255,0.18);
-                transform: scale(1.08);
-            }
-
-            .glass-btn:active {
-                transform: scale(0.95);
-            }
-
-        /* ===== Global Selection ===== */
-        ::selection {
-            background: #24a09c;
-            color: #fff;
-        }
-
-        ::-moz-selection {
-            background: #24a09c;
-            color: #fff;
-        }
-
         /* ===== Reset ===== */
         * {
             margin: 0;
@@ -87,136 +26,210 @@
             color: #9ef7d8;
         }
 
-        /* ===== Slim Glass Header ===== */
-        .logo {
-            position: absolute;
-            top: 30px;
-            left: 40px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
+        ::selection {
+            background: #24a09c;
+            color: #fff;
         }
 
-            .logo img {
-                width: 60%;
-                height: 60%;
-                object-fit: contain;
-            }
+        ::-moz-selection {
+            background: #24a09c;
+            color: #fff;
+        }
 
-        .dock {
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
+        /* ===== NAVBAR (matching about page) ===== */
+        .navbar {
+            position: fixed;
+            top: 25px;
+            right: 15px;
             display: flex;
-            justify-content: center;
-            align-items: center;
             gap: 25px;
-            height: 60px;
-            padding: 0 25px;
+            padding: 10px 28px;
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(20px);
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border-radius: 60px;
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            align-items: center;
             z-index: 1000;
         }
 
-            .dock a {
+            .navbar a {
                 text-decoration: none;
                 color: white;
-                font-size: 1rem;
-                font-weight: 500;
+                font-weight: 600;
+                font-size: 16px;
                 transition: 0.3s ease;
             }
 
-                .dock a:hover {
-                    transform: scale(1.1);
+                .navbar a:hover {
+                    transform: scale(1.08);
                     color: #00f6ff;
                 }
 
-        .feedback {
-            position: absolute;
-            top: 30px;
-            right: 40px;
-            height: 60px;
-            padding: 0 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            color: white;
-            font-weight: 500;
-            text-decoration: none;
-            transition: 0.3s ease;
-            z-index: 1000;
+        .feedback-btn {
+            background: #00b894;
+            padding: 10px 14px;
+            border-radius: 20px;
+            font-size: 15px;
+            color: white !important;
         }
 
-            .feedback:hover {
-                background: rgba(0, 246, 255, 0.2);
-                color: #00f6ff;
+            .feedback-btn:hover {
+                background: #009e7f;
                 transform: scale(1.05);
             }
 
-        /* ===== Hero Section ===== */
-        .hero {
+        /* ===== LOGO (matching about page) ===== */
+        .logo-container {
+            position: fixed;
+            top: 25px;
+            left: 20px;
+            width: 75px;
+            height: 75px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            z-index: 1000;
+            transition: 0.3s ease;
+        }
+
+            .logo-container:hover {
+                transform: scale(1.05);
+                background: rgba(255,255,255,0.12);
+            }
+
+        .site-logo {
+            width: 45px;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .logo-container {
+                top: auto;
+                bottom: 15px;
+                left: 15px;
+                width: 65px;
+                height: 65px;
+            }
+
+            .site-logo {
+                width: 40px;
+            }
+
+            .navbar {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                top: 20px;
+                padding: 10px 18px;
+                gap: 18px;
+                border-radius: 50px;
+            }
+
+                .navbar a {
+                    font-size: 14px;
+                }
+
+            .feedback-btn {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            min-height: calc(100vh - 120px); /* 120px = header height */
-            padding: 0;
         }
 
+            .hero video {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transform: translate(-50%, -50%);
+                z-index: 0;
+            }
 
-        #heroCanvas {
+        .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            z-index: 0;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.45);
+            background: rgba(0,0,0,0.45);
             z-index: 1;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             color: #fff;
-            padding: 20px;
+            padding: 24px;
         }
 
             .hero-content h1 {
                 font-weight: 900;
-                font-size: 5rem;
-                margin-bottom: 30px;
+                font-size: clamp(2.4rem, 6vw, 4.8rem);
+                margin-bottom: 12px;
                 background: linear-gradient(90deg, #16f2eb, #00fe38);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
+
+            .hero-content p {
+                font-size: clamp(1rem, 2.2vw, 1.25rem);
+                opacity: 0.95;
+                margin: 0;
+            }
+
+        .glass-btn {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(15px);
+            color: white;
+            font-size: 26px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 4;
+            transition: 0.3s ease;
+        }
+
+            .glass-btn:hover {
+                background: rgba(255,255,255,0.18);
+                transform: scale(1.08);
+            }
+
+        @media (max-width: 768px) {
+            .glass-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 22px;
+                right: 20px;
+                bottom: 20px;
+            }
+        }
 
         /* ===== About Section ===== */
         .about-section {
@@ -244,6 +257,106 @@
             color: #b0c4d4;
         }
 
+        .about-lottie dotlottie-wc {
+            height: 400px !important;
+            max-width: 500px !important;
+        }
+
+        @media (max-width: 900px) {
+            .about-section {
+                flex-direction: column-reverse !important;
+                padding: 30px 8vw !important;
+                gap: 30px !important;
+            }
+
+            .about-lottie dotlottie-wc {
+                height: 300px !important;
+                max-width: 100% !important;
+            }
+        }
+
+        /* ===== Technical Performance ===== */
+        .bar-container {
+            width: 100%;
+            height: 40px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(22,242,235,0.3);
+            position: relative;
+            width: 0 !important;
+            transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
+        }
+
+            .bar-fill::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                animation: shimmer 2s infinite;
+            }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%)
+            }
+
+            100% {
+                transform: translateX(100%)
+            }
+        }
+
+        .metric-item {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+            .metric-item.animate {
+                animation: fadeInUp 0.8s forwards;
+            }
+
+                .metric-item.animate:nth-child(1) {
+                    animation-delay: 0.2s;
+                }
+
+                .metric-item.animate:nth-child(2) {
+                    animation-delay: 0.4s;
+                }
+
+                .metric-item.animate:nth-child(3) {
+                    animation-delay: 0.6s;
+                }
+
+                .metric-item.animate .bar-fill {
+                    width: var(--bar-width) !important;
+                }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metric-item span:first-child {
+                font-size: 16px !important;
+            }
+
+            .metric-item span:last-child {
+                font-size: 20px !important;
+            }
+        }
+
         /* ===== Feature Cards ===== */
         .feature-card {
             background: #153556;
@@ -269,241 +382,11 @@
             .feature-card-content h5 {
                 font-size: 24px;
                 font-weight: 600;
-                margin-bottom: 8px;
-            }
-
-            .feature-card-content p {
-                font-size: 18px;
-            }
-
-        .feature-card::before {
-            content: "";
-            position: absolute;
-            inset-inline: 0;
-            bottom: 0;
-            height: 80px;
-            background: linear-gradient(to top,rgba(0,255,179,0.4),transparent);
-            filter: blur(30px);
-            z-index: 0;
-        }
-
-        .feature-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 16px;
-            pointer-events: none;
-        }
-
-        /* ===== Mobile Optimization ===== */
-        @media (max-width: 768px) {
-            .logo {
-                display: none;
-            }
-
-            .dock {
-                left: 20px;
-                transform: none;
-            }
-
-            .feedback {
-                right: 20px;
-            }
-        }
-        /* Mobile: show and pin .logo to bottom-left */
-        @media (max-width: 768px) {
-            /* make sure logo is visible and fixed to bottom-left */
-            .logo {
-                display: flex !important; /* undo any earlier display:none */
-                position: fixed !important; /* stick to viewport */
-                bottom: 18px !important; /* distance from bottom */
-                left: 18px !important; /* distance from left */
-                top: auto !important; /* cancel top:30px from earlier rule */
-                width: 56px !important; /* slightly smaller on phones */
-                height: 56px !important;
-                border-radius: 50% !important;
-                z-index: 9999 !important;
-                background: rgba(255,255,255,0.08) !important;
-                backdrop-filter: blur(12px) !important;
-                border: 1px solid rgba(255,255,255,0.12) !important;
-                box-shadow: 0 6px 20px rgba(0,0,0,0.35) !important;
-                justify-content: center;
-                align-items: center;
-                padding: 6px;
-                transition: transform 0.18s ease;
-            }
-
-                /* slightly smaller inner image */
-                .logo img {
-                    width: 68%;
-                    height: 68%;
-                    object-fit: contain;
-                }
-
-            /* keep dock and feedback layout mobile-friendly */
-            .dock {
-                left: 20px;
-                transform: none;
-            }
-
-            .feedback {
-                right: 20px;
-                top: 30px;
-            }
-        }
-
-    </style>
-</head>
-
-<body>
-    <!-- ===== Slim Glass Header ===== -->
-    <header class="slim-glass-header">
-        <div class="logo">
-            <img src="Images/logsquare.png" alt="Guardian Link Logo">
-        </div>
-
-        <div class="dock">
-            <a href="./">home</a>
-            <a href="./about">about</a>
-        </div>
-
-        <a href="./feedback" class="feedback">feedback</a>
-    </header>
-
-
-
-
-    <!-- ===== Hero Section ===== -->
-    <section class="hero">
-        <video id="heroVideo" autoplay muted loop playsinline>
-            <source src="FERIYA Y FIESTA.mp4" type="video/mp4">
-        </video>
-
-        <!-- Overlay for readability -->
-        <div class="overlay"></div>
-
-        <!-- GLASS PAUSE BUTTON -->
-        <button id="pauseBtn" class="glass-btn">❚❚</button>
-
-        <!-- Your hero content -->
-        <div class="hero-content">
-            <h1>Guardian Link</h1>
-            <p>Smart safety. Made simple.</p>
-        </div>
-    </section>
-
-
-    <!-- About Section -->
-    <section class="about-section" style="background:#11253B; padding:100px 10vw; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px; font-family:'Montserrat', sans-serif;">
-        <div class="about-text" style="flex:1; min-width:280px; text-align:left;">
-            <h2 style="font-size:36px; font-weight:600; color:#ffffff; margin-bottom:20px;">
-                Who we are
-            </h2>
-            <p style="font-size:18px; line-height:1.8; font-weight:400; color:#b0c4d4;">
-                Guardian Link is a smart baby monitoring system that uses machine learning to detect when a baby cries,
-                automatically plays a soothing lullaby, and sends real-time alerts to the parent's phone.
-                Designed especially for parents with hearing challenges, Guardian Link ensures no cry goes unheard.
-            </p>
-        </div>
-
-        <div class="about-lottie" style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
-            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
-            <dotlottie-wc src="https://lottie.host/fb3f0e9c-442c-4cf5-9bfe-655beabdcecd/yRIEjM8Icu.lottie"
-                          style="width:100%; max-width:600px; height:600px;"
-                          autoplay
-                          loop>
-            </dotlottie-wc>
-        </div>
-    </section>
-
-
-    <!-- Key Features Section -->
-    <section style="background:#284666; padding:100px 10vw; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:60px; font-family:'Montserrat',sans-serif;">
-
-        <!-- Heading -->
-        <h2 style="font-size:36px; font-weight:600; color:#ffffff; margin:0; text-align:center;">
-            Key Features
-        </h2>
-
-        <div style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px; width:100%;">
-            <div style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
-                <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
-                <dotlottie-wc src="https://lottie.host/1fe97265-29ec-436c-9ad5-5353d610b27f/XmDnvm1loW.lottie"
-                              style="width:100%; max-width:600px; height:600px;"
-                              autoplay
-                              loop>
-                </dotlottie-wc>
-            </div>
-
-            <div style="flex:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px;">
-                <!-- Card 1 -->
-                <article class="feature-card">
-                    <div class="feature-card-content">
-                        <h5>AI Cry Detection</h5>
-                        <p>Trained with real baby sounds to detect crying instantly and accurately.</p>
-                    </div>
-                </article>
-
-                <!-- Card 2 -->
-                <article class="feature-card">
-                    <div class="feature-card-content">
-                        <h5>Automatic Lullaby</h5>
-                        <p>Plays gentle music to soothe the baby back to sleep automatically.</p>
-                    </div>
-                </article>
-
-                <!-- Card 3 -->
-                <article class="feature-card">
-                    <div class="feature-card-content">
-                        <h5>Instant Alerts</h5>
-                        <p>Notifies parents immediately via phone or Telegram when the baby cries.</p>
-                    </div>
-                </article>
-
-                <!-- Card 4 -->
-                <article class="feature-card">
-                    <div class="feature-card-content">
-                        <h5>Privacy First</h5>
-                        <p>All recordings are processed locally and deleted automatically after analysis.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <style>
-        .feature-card {
-            background: #153556;
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-            .feature-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 12px 24px rgba(0,255,179,0.35);
-            }
-
-        .feature-card-content {
-            padding: 24px;
-            color: #befff3;
-            position: relative;
-            z-index: 1;
-        }
-
-            .feature-card-content h5 {
-                font-family: 'Montserrat SemiBold',sans-serif;
-                font-size: 24px;
-                font-weight: 600;
                 margin: 0 0 8px 0;
                 line-height: 1.45;
             }
 
             .feature-card-content p {
-                font-family: 'Montserrat Medium',sans-serif;
                 font-size: 18px;
                 font-weight: 500;
                 margin: 0;
@@ -527,226 +410,10 @@
             inset: 0;
             border: 1px solid rgba(0,0,0,0.1);
             border-radius: 16px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.02),0 6px 12px rgba(0,0,0,0.03);
             pointer-events: none;
             z-index: 0;
         }
 
-        /* Button */
-        .button-68 {
-            background-color: #16f2eb;
-            border-radius: 8px;
-            border: none;
-            color: #11253B;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 15px;
-            font-weight: 600;
-            padding: 10px 18px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 4px 9px rgba(22, 242, 235, 0.2);
-        }
-
-            .button-68:hover {
-                background-color: #24a09c;
-                color: #fff;
-                box-shadow: 0 6px 12px rgba(29, 168, 164, 0.35);
-            }
-
-            .button-68:active {
-                transform: translateY(2px);
-            }
-        /* Hero Section */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            min-height: calc(100vh - 120px); /* 120px = header height */
-            padding: 0;
-        }
-
-
-        #heroCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.45);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: #fff;
-            padding: 20px;
-        }
-
-            .hero-content h1 {
-                font-weight: 900;
-                font-size: 5rem;
-                margin-bottom: 30px;
-                background: linear-gradient(90deg, #16f2eb, #00fe38);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-
-        /* About Section */
-        .about-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 50px 10vw;
-            background: #11253B;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .about-card {
-            display: flex;
-            flex-direction: row;
-            background: #0d1c2e;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            max-width: 1200px;
-            width: 100%;
-            overflow: hidden;
-            color: #9ef7d8;
-        }
-
-        .about-text {
-            padding: 50px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            gap: 20px;
-        }
-
-            .about-text h2 {
-                font-size: 2.8rem;
-                font-weight: 700;
-                color: #00fe38;
-            }
-
-            .about-text p {
-                font-size: 1.1rem;
-                line-height: 1.8;
-                font-weight: 300;
-            }
-
-        .about-image {
-            flex: 1;
-            overflow: hidden;
-        }
-
-            .about-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-        /* Product Section */
-        .products-section {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 80px 20px;
-            flex-wrap: wrap;
-            background: #0d1c2e;
-        }
-
-        .main-product-card {
-            flex: 2;
-            display: flex;
-            flex-direction: row;
-            background: #11253B;
-            border-radius: 20px;
-            overflow: hidden;
-            color: #9ef7d8;
-        }
-
-        .main-product-image {
-            flex: 1;
-            overflow: hidden;
-        }
-
-            .main-product-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-        .main-product-text {
-            padding: 30px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-            .main-product-text h2 {
-                font-size: 2.5rem;
-                font-weight: 700;
-                margin-bottom: 15px;
-                text-align: center;
-                color: #00fe38;
-            }
-
-            .main-product-text p {
-                font-size: 1.1rem;
-                font-weight: 300;
-                line-height: 1.6;
-                text-align: center;
-            }
-
-        .small-cards {
-            flex: 1;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-            width: 100%;
-        }
-
-        .small-card {
-            background: #0d1c2e;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(0, 254, 56, 0.12);
-            transition: all 0.3s ease;
-        }
-
-            .small-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 0 25px rgba(0, 254, 56, 0.35);
-            }
-
-            .small-card h4 {
-                color: #00fe38;
-                margin-bottom: 10px;
-                font-size: 1.5rem;
-                font-weight: 600;
-            }
-
-        /* Key Features Section Fix */
         section[style*="background:#284666"] {
             padding: 40px 10vw !important;
         }
@@ -756,63 +423,7 @@
                 max-width: 500px !important;
             }
 
-        /* About + Pitch Section Fix */
-        .about-lottie dotlottie-wc {
-            height: 400px !important;
-            max-width: 500px !important;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #0d1c2e;
-            color: #9ef7d8;
-            padding: 60px 20px 30px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .footer-section h3 {
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #00fe38;
-        }
-
-        .footer-section a {
-            font-weight: 300;
-            font-size: 0.95rem;
-            color: #9ef7d8;
-            text-decoration: none;
-            line-height: 1.6;
-        }
-
-            .footer-section a:hover {
-                color: #24a09c;
-            }
-
-        .footer-bottom {
-            width: 100%;
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(158, 247, 216, 0.3);
-            margin-top: 30px;
-            font-size: 0.85rem;
-        }
-
-        /* Responsive Design */
         @media (max-width: 900px) {
-            .about-section {
-                flex-direction: column-reverse !important;
-                padding: 30px 8vw !important;
-                gap: 30px !important;
-            }
-
-            .about-lottie dotlottie-wc {
-                height: 300px !important;
-                max-width: 100% !important;
-            }
-
             section[style*="background:#284666"] {
                 padding: 30px 8vw !important;
             }
@@ -822,92 +433,7 @@
                 }
         }
 
-        ::selection {
-            background: #24a09c;
-            color: #fff;
-        }
-
-        ::-moz-selection {
-            background: #24a09c;
-            color: #fff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            height: 100%;
-            font-family: 'Montserrat', sans-serif;
-            background: #0d1c2e;
-            color: #9ef7d8;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 15px 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: background-color 0.4s ease, box-shadow 0.4s ease;
-            z-index: 1000;
-        }
-
-            header.transparent {
-                background: rgba(13, 28, 46, 0);
-                box-shadow: none;
-            }
-
-            header.opaque {
-                background: rgba(13, 28, 46, 0.95);
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            }
-
-            header img {
-                height: 50px;
-            }
-
-        nav {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-
-            nav ul {
-                list-style: none;
-                display: flex;
-                gap: 30px;
-                align-items: center;
-            }
-
-                nav ul li a {
-                    text-decoration: none;
-                    font-weight: 300;
-                    color: #fff;
-                    transition: color 0.3s;
-                }
-
-        header.opaque nav ul li a:not(.button-68) {
-            color: #9ef7d8;
-        }
-
-        nav ul li a:hover {
-            color: #24a09c;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        /* Button */
+        /* ===== Button ===== */
         .button-68 {
             background-color: #16f2eb;
             border-radius: 8px;
@@ -921,218 +447,20 @@
             transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 4px 9px rgba(22, 242, 235, 0.2);
+            box-shadow: 0 4px 9px rgba(22,242,235,0.2);
         }
 
             .button-68:hover {
                 background-color: #24a09c;
                 color: #fff;
-                box-shadow: 0 6px 12px rgba(29, 168, 164, 0.35);
+                box-shadow: 0 6px 12px rgba(29,168,164,0.35);
             }
 
             .button-68:active {
                 transform: translateY(2px);
             }
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        #heroCanvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.45);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: #fff;
-            padding: 20px;
-        }
-
-            .hero-content h1 {
-                font-weight: 900;
-                font-size: 5rem;
-                margin-bottom: 30px;
-                background: linear-gradient(90deg, #16f2eb, #00fe38);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-
-        /* About Section */
-        .about-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 80px 20px;
-            background: #11253B;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .about-card {
-            display: flex;
-            flex-direction: row;
-            background: #0d1c2e;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            max-width: 1200px;
-            width: 100%;
-            overflow: hidden;
-            color: #9ef7d8;
-        }
-
-        .about-text {
-            padding: 50px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            gap: 20px;
-        }
-
-            .about-text h2 {
-                font-size: 2.8rem;
-                font-weight: 700;
-                color: #00fe38;
-            }
-
-            .about-text p {
-                font-size: 1.1rem;
-                line-height: 1.8;
-                font-weight: 300;
-            }
-
-        .about-image {
-            flex: 1;
-            overflow: hidden;
-        }
-
-            .about-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-        /* Product Section */
-        .products-section {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 80px 20px;
-            flex-wrap: wrap;
-            background: #0d1c2e;
-        }
-
-        .main-product-card {
-            flex: 2;
-            display: flex;
-            flex-direction: row;
-            background: #11253B;
-            border-radius: 20px;
-            overflow: hidden;
-            color: #9ef7d8;
-        }
-
-        .main-product-image {
-            flex: 1;
-            overflow: hidden;
-        }
-
-            .main-product-image img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-        .main-product-text {
-            padding: 30px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-            .main-product-text h2 {
-                font-size: 2.5rem;
-                font-weight: 700;
-                margin-bottom: 15px;
-                text-align: center;
-                color: #00fe38;
-            }
-
-            .main-product-text p {
-                font-size: 1.1rem;
-                font-weight: 300;
-                line-height: 1.6;
-                text-align: center;
-            }
-
-        .small-cards {
-            flex: 1;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-            width: 100%;
-        }
-
-        .small-card {
-            background: #0d1c2e;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(0, 254, 56, 0.12);
-            transition: all 0.3s ease;
-        }
-
-            .small-card:hover {
-                transform: translateY(-8px);
-                box-shadow: 0 0 25px rgba(0, 254, 56, 0.35);
-            }
-
-            .small-card h4 {
-                color: #00fe38;
-                margin-bottom: 10px;
-                font-size: 1.5rem;
-                font-weight: 600;
-            }
-
-        /* Footer */
-        footer {
-            background-color: #0d1c2e;
-            color: #9ef7d8;
-            padding: 60px 20px 30px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
+        /* ===== Footer ===== */
         .footer-section h3 {
             font-weight: 600;
             margin-bottom: 15px;
@@ -1155,294 +483,211 @@
             width: 100%;
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid rgba(158, 247, 216, 0.3);
+            border-top: 1px solid rgba(158,247,216,0.3);
             margin-top: 30px;
             font-size: 0.85rem;
         }
-
-        /* Responsive Design */
-        @media (max-width: 900px) {
-            .about-card,
-            .main-product-card {
-                flex-direction: column;
-            }
-
-            footer {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            header {
-                padding: 10px 20px;
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .about-text {
-                padding: 30px 20px;
-            }
-
-            .main-product-text {
-                padding: 20px;
-            }
-        }
-
-        .hero {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-            /* Video background */
-            .hero video {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transform: translate(-50%, -50%);
-                z-index: 1;
-            }
-
-        /* Dark overlay to improve text contrast */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.35);
-            z-index: 2;
-        }
-
-        /* Hero content */
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            color: white;
-            margin-top: 30vh;
-        }
-
-            .hero-content h1 {
-                font-size: 3rem;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 900;
-            }
-
-        /* Glassy Pause Button */
-        .glass-btn {
-            position: absolute;
-            bottom: 40px;
-            right: 40px;
-            z-index: 4;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.25);
-            backdrop-filter: blur(10px);
-            background: rgba(255,255,255,0.12);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 26px;
-            color: white;
-            cursor: pointer;
-            transition: 0.2s ease;
-        }
-
-            .glass-btn:hover {
-                background: rgba(255,255,255,0.20);
-                transform: scale(1.08);
-            }
-
-        /* Mobile tweaks */
-        @media (max-width: 768px) {
-            .glass-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 22px;
-                right: 20px;
-                bottom: 20px;
-            }
-        }
-        /* ---------- HERO: force perfect centering (override conflicts) ---------- */
-        :root {
-            /* set this to your actual header height if needed (default 80px) */
-            --header-height: 80px;
-        }
-
-        /* Make hero a true flex container and remove extra padding */
-        .hero {
-            position: relative !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: center !important;
-            text-align: center !important;
-            padding: 0 !important;
-            min-height: calc(100vh - var(--header-height)) !important;
-            box-sizing: border-box !important;
-            overflow: hidden;
-        }
-
-            /* Ensure video stays background and doesn't push content */
-            .hero video {
-                position: absolute !important;
-                top: 50% !important;
-                left: 50% !important;
-                transform: translate(-50%, -50%) !important;
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover !important;
-                z-index: 0 !important;
-            }
-
-        /* Remove any previously applied vertical offset on the content */
-        .hero-content {
-            position: relative !important;
-            z-index: 3 !important;
-            margin: 0 !important;
-            transform: none !important;
-            padding: 24px; /* optional, adjust to taste */
-        }
-
-            /* Make heading and subtext responsive and centered nicely */
-            .hero-content h1 {
-                font-size: clamp(2.4rem, 6vw, 4.8rem);
-                line-height: 1.02;
-                margin: 0 0 12px 0;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-
-            .hero-content p {
-                margin: 0;
-                font-size: clamp(1rem, 2.2vw, 1.25rem);
-                opacity: 0.95;
-            }
-
-        /* Mobile tweak: reduce top offset issues on small screens */
-        @media (max-width: 768px) {
-            :root {
-                --header-height: 64px;
-            }
-
-            .hero {
-                min-height: calc(100vh - var(--header-height));
-            }
-
-            .hero-content {
-                padding: 18px;
-            }
-        }
-
     </style>
-<link rel="icon" type="image/png" href="Images/logsquare.png">
+</head>
 
-    <!-- Feedback Prompt -->
-    <!-- Heard Our Pitch Section -->
-    <section class="about-section" style="background:#11253B; padding:100px 10vw; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px; font-family:'Montserrat', sans-serif;">
+<body>
 
-        <!-- Lottie Animation (Left) -->
-        <div class="about-lottie" style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
-            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
-            <dotlottie-wc src="https://lottie.host/4083d4ff-7837-4003-bdb7-4582c5ac02b4/M9ITJefd7T.lottie"
-                          style="width:100%; max-width:650px; height:650px;"
-                          autoplay
-                          loop>
-            </dotlottie-wc>
+    <!-- LOGO -->
+    <div class="logo-container">
+        <img src="Images/logsquare.png" class="site-logo" alt="Guardian Link Logo">
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <a href="./">Home</a>
+        <a href="./about">About</a>
+        <a href="./contact">Contact</a>
+        <a href="./feedback" class="feedback-btn">Feedback</a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <video id="heroVideo" autoplay muted loop playsinline>
+            <source src="FERIYA Y FIESTA.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <button id="pauseBtn" class="glass-btn">❚❚</button>
+        <div class="hero-content">
+            <h1>Guardian Link</h1>
+            <p>Smart safety. Made simple.</p>
         </div>
-
-        <!-- Text and Button (Right) -->
-        <div class="about-text" style="flex:1; min-width:280px; text-align:left;">
-            <h2 style="font-size:36px; font-weight:600; color:#ffffff; margin-bottom:20px;">
-                Heard our Pitch?
-            </h2>
-            <p style="font-size:18px; line-height:1.8; font-weight:400; color:#b0c4d4; margin-bottom:40px;">
-                We’d love to know what you think! Your feedback helps us improve and grow.
-            </p>
-            <div style="display:flex; justify-content:center;">
-                <a href="./feedback"
-                   class="button-68"
-                   role="button"
-                   style="width:70%; text-align:center; font-size:18px; padding:15px 0;">
-                    Feedback
-                </a>
-            </div>
-        </div>
-
     </section>
 
+    <!-- WHO WE ARE -->
+    <section class="about-section" style="background:#11253B; padding:100px 10vw; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px; font-family:'Montserrat', sans-serif;">
+        <div class="about-text" style="flex:1; min-width:280px; text-align:left;">
+            <h2 style="font-size:36px; font-weight:600; color:#ffffff; margin-bottom:20px;">Who we are</h2>
+            <p style="font-size:18px; line-height:1.8; font-weight:400; color:#b0c4d4;">
+                Guardian Link is a smart baby monitoring system that uses machine learning to detect when a baby cries,
+                automatically plays a soothing lullaby, and sends real-time alerts to the parent's phone.
+                Designed especially for parents with hearing challenges, Guardian Link ensures no cry goes unheard.
+            </p>
+        </div>
+        <div class="about-lottie" style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
+            <dotlottie-wc src="https://lottie.host/fb3f0e9c-442c-4cf5-9bfe-655beabdcecd/yRIEjM8Icu.lottie"
+                          style="width:100%; max-width:600px; height:600px;" autoplay loop></dotlottie-wc>
+        </div>
+    </section>
 
+    <!-- TECHNICAL PERFORMANCE -->
+    <section style="background:#0d1e31; padding:100px 10vw; font-family:'Montserrat',sans-serif;">
+        <div style="max-width:900px; margin:0 auto; background:#11253B; border-radius:20px; padding:60px 50px; box-shadow:0 10px 40px rgba(0,0,0,0.4);">
+            <h2 style="font-size:42px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:8px;">Technical Performance</h2>
+            <p style="font-size:13px; font-weight:400; color:#7a8fa6; text-align:center; margin-bottom:50px; letter-spacing:0.3px;">Measured under controlled testing environments.</p>
 
-    <!-- Footer -->
-    <footer style="background:#000; color:#fff; padding:60px 20px; font-family:'Montserrat', sans-serif;">
-        <div class="footer-top" style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; text-align:left;">
-
-            <div style="flex:1; min-width:250px;">
-                <div class="footer-logo" style="margin-bottom:20px; text-align:center;">
-                    <img src="Images/LOGOCOLORED.png" alt="Shemashine Logo" style="height:60px;">
+            <div style="display:flex; flex-direction:column; gap:40px;">
+                <div class="metric-item">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <span style="font-size:20px; font-weight:600; color:#ffffff;">Cry Detection Accuracy</span>
+                        <span class="metric-value" data-target="96" style="font-size:24px; font-weight:700; color:#16f2eb;">0%</span>
+                    </div>
+                    <div class="bar-container"><div class="bar-fill" style="--bar-width:96%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div></div>
                 </div>
-
-                <!-- FIXED: centered text -->
-                <div class="footer-section" style="text-align:center;">
-                    <p>
-                        Guardian Link is a startup founded in 2022. It has won multiple competitions
-                        and plans on mass production of its product.
-                    </p>
+                <div class="metric-item">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <span style="font-size:20px; font-weight:600; color:#ffffff;">Noise Reduction</span>
+                        <span class="metric-value" data-target="93" style="font-size:24px; font-weight:700; color:#16f2eb;">0%</span>
+                    </div>
+                    <div class="bar-container"><div class="bar-fill" style="--bar-width:93%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div></div>
+                </div>
+                <div class="metric-item">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <span style="font-size:20px; font-weight:600; color:#ffffff;">Response Time</span>
+                        <span class="metric-value" data-target="12" data-suffix="s" style="font-size:24px; font-weight:700; color:#16f2eb;">0s</span>
+                    </div>
+                    <div class="bar-container"><div class="bar-fill" style="--bar-width:60%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div></div>
+                    <div style="text-align:right; margin-top:8px; font-size:14px; color:#9ef7d8;">Maximum: 20s</div>
                 </div>
             </div>
+        </div>
+    </section>
 
+    <!-- KEY FEATURES -->
+    <section style="background:#284666; padding:100px 10vw; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:60px; font-family:'Montserrat',sans-serif;">
+        <h2 style="font-size:36px; font-weight:600; color:#ffffff; margin:0; text-align:center;">Key Features</h2>
+        <div style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px; width:100%;">
+            <div style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
+                <dotlottie-wc src="https://lottie.host/1fe97265-29ec-436c-9ad5-5353d610b27f/XmDnvm1loW.lottie"
+                              style="width:100%; max-width:600px; height:600px;" autoplay loop></dotlottie-wc>
+            </div>
+            <div style="flex:1; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px;">
+                <article class="feature-card">
+                    <div class="feature-card-content"><h5>AI Cry Detection</h5><p>Trained with real baby sounds to detect crying instantly and accurately.</p></div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-card-content"><h5>Automatic Lullaby</h5><p>Plays gentle music to soothe the baby back to sleep automatically.</p></div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-card-content"><h5>Instant Alerts</h5><p>Notifies parents immediately via phone or Telegram when the baby cries.</p></div>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-card-content"><h5>Privacy First</h5><p>All recordings are processed locally and deleted automatically after analysis.</p></div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- HEARD OUR PITCH -->
+    <section class="about-section" style="background:#11253B; padding:100px 10vw; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:60px; font-family:'Montserrat', sans-serif;">
+        <div class="about-lottie" style="flex:1; display:flex; justify-content:center; align-items:center; min-width:300px;">
+            <dotlottie-wc src="https://lottie.host/4083d4ff-7837-4003-bdb7-4582c5ac02b4/M9ITJefd7T.lottie"
+                          style="width:100%; max-width:650px; height:650px;" autoplay loop></dotlottie-wc>
+        </div>
+        <div class="about-text" style="flex:1; min-width:280px; text-align:left;">
+            <h2 style="font-size:36px; font-weight:600; color:#ffffff; margin-bottom:20px;">Heard our Pitch?</h2>
+            <p style="font-size:18px; line-height:1.8; font-weight:400; color:#b0c4d4; margin-bottom:40px;">
+                We'd love to know what you think! Your feedback helps us improve and grow.
+            </p>
+            <div style="display:flex; justify-content:center;">
+                <a href="./feedback" class="button-68" role="button" style="width:70%; text-align:center; font-size:18px; padding:15px 0;">Feedback</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="background:#000; color:#fff; padding:60px 20px; font-family:'Montserrat', sans-serif;">
+        <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between; text-align:left;">
+            <div style="flex:1; min-width:250px; text-align:center;">
+                <div style="margin-bottom:20px;">
+                    <img src="Images/LOGOCOLORED.png" alt="Guardian Link Logo" style="height:60px;">
+                </div>
+                <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">
+                    Guardian Link is a startup founded in 2022. It has won multiple competitions and plans on mass production of its product.
+                </p>
+            </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <p><a href="./">→ Home</a></p>
-                <p><a href="./about">About</a></p>
-                <p><a href="./feedback">Feedback</a></p>
-                <p><a href="./next">Next</a></p>
+                <p><a href="./about">→ About</a></p>
+                <p><a href="./feedback">→ Feedback</a></p>
             </div>
-
             <div class="footer-section">
                 <h3>Contact Info</h3>
-                <p>Email: guardianlink.optodex@gmail.com</p>
-                <p>Phone: +91 917 712 2282<br>Phone: +91 970 510 8899</p>
-                <p>Based in India, Ships to any country.</p>
+                <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">Email: guardianlink.optodex&#64;gmail.com</p>
+                <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">Phone: +91 917 712 2282</p>
+                <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">Phone: +91 970 510 8899</p>
+                <p style="color:#9ef7d8; font-weight:300; font-size:0.95rem; line-height:1.6;">Based in India, Ships to any country.</p>
             </div>
         </div>
-
-        <div class="footer-bottom" style="text-align:center; margin-top:40px;">
-            &copy; 2025 Guardian Link. All rights reserved.
-        </div>
+        <div class="footer-bottom">&copy; 2025 Guardian Link. All rights reserved.</div>
     </footer>
+
     <script>
+        // Pause/play button
         const video = document.getElementById("heroVideo");
         const btn = document.getElementById("pauseBtn");
-
         btn.addEventListener("click", () => {
-            if (video.paused) {
-                video.play();
-                btn.innerHTML = "❚❚";  // Pause icon
-            } else {
-                video.pause();
-                btn.innerHTML = "▶";  // Play icon
-            }
+            if (video.paused) { video.play(); btn.innerHTML = "❚❚"; }
+            else { video.pause(); btn.innerHTML = "▶"; }
         });
+
+        // Metrics animation
+        function animateCounter(element, target, suffix = '%') {
+            let current = 0;
+            const increment = target / 60;
+            const stepTime = 1500 / 60;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) { current = target; clearInterval(timer); }
+                element.textContent = Math.floor(current) + suffix;
+            }, stepTime);
+            return timer;
+        }
+
+        let activeTimers = [];
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const metricItems = entry.target.querySelectorAll('.metric-item');
+                if (entry.isIntersecting) {
+                    metricItems.forEach(item => {
+                        item.classList.add('animate');
+                        const valueElement = item.querySelector('.metric-value');
+                        if (valueElement) {
+                            const target = parseInt(valueElement.getAttribute('data-target'));
+                            const suffix = valueElement.getAttribute('data-suffix') || '%';
+                            activeTimers.push(animateCounter(valueElement, target, suffix));
+                        }
+                    });
+                } else {
+                    activeTimers.forEach(timer => clearInterval(timer));
+                    activeTimers = [];
+                    metricItems.forEach(item => {
+                        item.classList.remove('animate');
+                        const valueElement = item.querySelector('.metric-value');
+                        if (valueElement) valueElement.textContent = '0' + (valueElement.getAttribute('data-suffix') || '%');
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const metricsSection = document.querySelector('.metric-item')?.closest('section');
+        if (metricsSection) observer.observe(metricsSection);
     </script>
-<link rel="icon" type="image/png" href="Images/logsquare.png">
+
 </body>
 </html>
-
-
-
-
