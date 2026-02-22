@@ -534,36 +534,68 @@
         </div>
     </section>
 
-    <!-- TECHNICAL PERFORMANCE -->
+    <!-- TECHNICAL PERFORMANCE + PROTOTYPE CAROUSEL -->
     <section style="background:#0d1e31; padding:100px 10vw; font-family:'Montserrat',sans-serif;">
-        <div style="max-width:900px; margin:0 auto; background:#11253B; border-radius:20px; padding:60px 50px; box-shadow:0 10px 40px rgba(0,0,0,0.4);">
-            <h2 style="font-size:42px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:8px;">Technical Performance</h2>
-            <p style="font-size:13px; font-weight:400; color:#7a8fa6; text-align:center; margin-bottom:50px; letter-spacing:0.3px;">Measured under controlled testing environments.</p>
+        <div style="max-width:1400px; margin:0 auto; display:flex; gap:40px; flex-wrap:wrap; justify-content:center; align-items:flex-start;">
 
-            <div style="display:flex; flex-direction:column; gap:40px;">
-                <div class="metric-item">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                        <span style="font-size:20px; font-weight:600; color:#ffffff;">Cry Detection Accuracy</span>
-                        <span class="metric-value" data-target="96" style="font-size:24px; font-weight:700; color:#16f2eb;">0%</span>
+            <!-- Technical Performance Box -->
+            <div style="flex:2; min-width:300px; max-width:950px; background:#11253B; border-radius:20px; padding:60px 50px; box-shadow:0 10px 40px rgba(0,0,0,0.4); display:flex; flex-direction:column; justify-content:center;">
+                <h2 style="font-size:42px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:8px;">Technical Performance</h2>
+                <p style="font-size:13px; font-weight:400; color:#7a8fa6; text-align:center; margin-bottom:50px; letter-spacing:0.3px;">Measured under controlled testing environments.</p>
+
+                <div style="display:flex; flex-direction:column; gap:40px;">
+                    <div class="metric-item">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                            <span style="font-size:20px; font-weight:600; color:#ffffff;">Cry Detection Accuracy</span>
+                            <span class="metric-value" data-target="96" style="font-size:24px; font-weight:700; color:#16f2eb;">0%</span>
+                        </div>
+                        <div class="bar-container"><div class="bar-fill" style="--bar-width:96%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div></div>
                     </div>
-                    <div class="bar-container"><div class="bar-fill" style="--bar-width:96%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div></div>
-                </div>
-                <div class="metric-item">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                        <span style="font-size:20px; font-weight:600; color:#ffffff;">Noise Reduction</span>
-                        <span class="metric-value" data-target="93" style="font-size:24px; font-weight:700; color:#16f2eb;">0%</span>
+                    <div class="metric-item">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                            <span style="font-size:20px; font-weight:600; color:#ffffff;">Noise Reduction</span>
+                            <span class="metric-value" data-target="93" style="font-size:24px; font-weight:700; color:#16f2eb;">0%</span>
+                        </div>
+                        <div class="bar-container"><div class="bar-fill" style="--bar-width:93%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div></div>
                     </div>
-                    <div class="bar-container"><div class="bar-fill" style="--bar-width:93%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div></div>
-                </div>
-                <div class="metric-item">
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                        <span style="font-size:20px; font-weight:600; color:#ffffff;">Response Time</span>
-                        <span class="metric-value" data-target="12" data-suffix="s" style="font-size:24px; font-weight:700; color:#16f2eb;">0s</span>
+                    <div class="metric-item">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                            <span style="font-size:20px; font-weight:600; color:#ffffff;">Response Time</span>
+                            <span class="metric-value" data-target="12" data-suffix="s" style="font-size:24px; font-weight:700; color:#16f2eb;">0s</span>
+                        </div>
+                        <div class="bar-container"><div class="bar-fill" style="--bar-width:60%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div></div>
+                        <div style="text-align:right; margin-top:8px; font-size:14px; color:#9ef7d8;">Maximum: 20s</div>
                     </div>
-                    <div class="bar-container"><div class="bar-fill" style="--bar-width:60%; background:linear-gradient(90deg, #16f2eb, #00fe38);"></div></div>
-                    <div style="text-align:right; margin-top:8px; font-size:14px; color:#9ef7d8;">Maximum: 20s</div>
                 </div>
             </div>
+
+            <!-- Prototype Carousel Box -->
+            <div style="flex:1; min-width:300px; max-width:500px; background:#11253B; border-radius:20px; padding:40px 35px; box-shadow:0 10px 40px rgba(0,0,0,0.4); display:flex; flex-direction:column; align-items:center; gap:20px;">
+                <h2 style="font-size:28px; font-weight:600; color:#ffffff; text-align:center; margin-bottom:4px;">Our Prototypes</h2>
+                <p style="font-size:12px; color:#7a8fa6; text-align:center; margin-bottom:10px; letter-spacing:0.3px;">From concept to product.</p>
+
+                <div style="position:relative; width:100%; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.5);">
+                    <img id="proto-img-home" src="Images/proto/proto1.jpeg" alt="Prototype"
+                         style="width:100%; height:300px; object-fit:cover; display:block; transition:opacity 0.4s ease;">
+                </div>
+
+                <p id="proto-caption-home" style="text-align:center; font-size:14px; color:#d1d1d1; min-height:24px; transition:opacity 0.4s ease;">Prototype 1 — Initial concept build.</p>
+
+                <div style="display:flex; justify-content:center; align-items:center; gap:16px;">
+                    <button onclick="prevProtoHome()" style="background:rgba(255,255,255,0.1); border:2px solid #16f2eb; color:#16f2eb; width:44px; height:44px; border-radius:50%; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease;">←</button>
+                    <div style="display:flex; gap:10px;" id="proto-indicators-home">
+                        <span onclick="goToProtoHome(0)" style="width:10px; height:10px; background:#16f2eb; border-radius:50%; cursor:pointer; transition:all 0.3s ease; transform:scale(1.2);"></span>
+                        <span onclick="goToProtoHome(1)" style="width:10px; height:10px; background:rgba(255,255,255,0.3); border-radius:50%; cursor:pointer; transition:all 0.3s ease;"></span>
+                        <span onclick="goToProtoHome(2)" style="width:10px; height:10px; background:rgba(255,255,255,0.3); border-radius:50%; cursor:pointer; transition:all 0.3s ease;"></span>
+                        <span onclick="goToProtoHome(3)" style="width:10px; height:10px; background:rgba(255,255,255,0.3); border-radius:50%; cursor:pointer; transition:all 0.3s ease;"></span>
+                        <span onclick="goToProtoHome(4)" style="width:10px; height:10px; background:rgba(255,255,255,0.3); border-radius:50%; cursor:pointer; transition:all 0.3s ease;"></span>
+                    </div>
+                    <button onclick="nextProtoHome()" style="background:rgba(255,255,255,0.1); border:2px solid #16f2eb; color:#16f2eb; width:44px; height:44px; border-radius:50%; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; transition:all 0.3s ease;">→</button>
+                </div>
+
+                <p style="text-align:center; font-size:13px; color:#7a8fa6;"><span id="proto-counter-home">1</span> / 5</p>
+            </div>
+
         </div>
     </section>
 
@@ -687,6 +719,42 @@
 
         const metricsSection = document.querySelector('.metric-item')?.closest('section');
         if (metricsSection) observer.observe(metricsSection);
+        // Prototype carousel (home)
+        const protoDataHome = [
+            { image: 'Images/proto/proto1.jpeg', caption: 'Prototype 1 — Initial concept build.' },
+            { image: 'Images/proto/proto2.jpeg', caption: 'Prototype 2 — Refined hardware.' },
+            { image: 'Images/proto/proto3.jpeg', caption: 'Prototype 3 — Improved enclosure and components.' },
+            { image: 'Images/proto/proto4.jpeg', caption: 'Prototype 4 — Software and hardware integration.' },
+            { image: 'Images/proto/proto5.jpeg', caption: 'Prototype 5 — Non Production Prototype.' }
+        ];
+        let protoIndexHome = 0;
+
+        function updateProtoHome() {
+            const img = document.getElementById('proto-img-home');
+            const caption = document.getElementById('proto-caption-home');
+            const counter = document.getElementById('proto-counter-home');
+            const indicators = document.getElementById('proto-indicators-home').children;
+            img.style.opacity = '0'; caption.style.opacity = '0';
+            setTimeout(() => {
+                img.src = protoDataHome[protoIndexHome].image;
+                caption.textContent = protoDataHome[protoIndexHome].caption;
+                counter.textContent = protoIndexHome + 1;
+                img.style.opacity = '1'; caption.style.opacity = '1';
+                Array.from(indicators).forEach((dot, i) => {
+                    dot.style.background = i === protoIndexHome ? '#16f2eb' : 'rgba(255,255,255,0.3)';
+                    dot.style.transform = i === protoIndexHome ? 'scale(1.2)' : 'scale(1)';
+                });
+            }, 300);
+        }
+
+        function nextProtoHome() { protoIndexHome = (protoIndexHome + 1) % protoDataHome.length; updateProtoHome(); resetProtoAutoHome(); }
+        function prevProtoHome() { protoIndexHome = (protoIndexHome - 1 + protoDataHome.length) % protoDataHome.length; updateProtoHome(); resetProtoAutoHome(); }
+        function goToProtoHome(i) { protoIndexHome = i; updateProtoHome(); resetProtoAutoHome(); }
+
+        let protoAutoHome;
+        function startProtoAutoHome() { protoAutoHome = setInterval(nextProtoHome, 8000); }
+        function resetProtoAutoHome() { clearInterval(protoAutoHome); startProtoAutoHome(); }
+        startProtoAutoHome();
     </script>
 
 </body>
